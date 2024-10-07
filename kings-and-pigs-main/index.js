@@ -1,8 +1,8 @@
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 
-canvas.width = 64 * 16 // 1024
-canvas.height = 64 * 9 // 576
+canvas.width = 2048 // 1024
+canvas.height = 2048 // 576
 
 let parsedCollisions
 let collisionBlocks
@@ -115,8 +115,8 @@ let levels = {
 
       background = new Sprite({
         position: {
-          x: 0,
-          y: 0,
+          x: 100,
+          y: 100,
         },
         imageSrc: './img/background_computing/2.png',
       })
@@ -147,8 +147,8 @@ let levels = {
 
       background = new Sprite({
         position: {
-          x: 0,
-          y: 0,
+          x: 250,
+          y: 100,
         },
         imageSrc: '../img/background_computing/3.png',
       })
