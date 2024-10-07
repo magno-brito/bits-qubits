@@ -1,8 +1,11 @@
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 
-canvas.width = 2048 // 1024
-canvas.height = 2048 // 576
+canvas.width = 1024 // 1024
+canvas.height = 576 // 576
+
+const backgroundImageWidth = 1024;  // Largura da imagem de fundo
+const backgroundImageHeight = 576; 
 
 let parsedCollisions
 let collisionBlocks
@@ -82,10 +85,11 @@ let levels = {
 
       background = new Sprite({
         position: {
-          x: 0,
-          y: 0,
+          x: (canvas.width - backgroundImageWidth) / 2,  // Centralizar horizontalmente
+          y: (canvas.height - backgroundImageHeight) / 2,  // Centralizar verticalmente
+ 
         },
-        imageSrc: './img/background_computing/1.png',
+        imageSrc: './img/pagina/1.png',
       })
 
       doors = [
@@ -115,10 +119,11 @@ let levels = {
 
       background = new Sprite({
         position: {
-          x: 100,
-          y: 100,
+          x: (canvas.width - backgroundImageWidth) / 2,  // Centralizar horizontalmente
+          y: (canvas.height - backgroundImageHeight) / 2,  // Centralizar verticalmente
+ 
         },
-        imageSrc: './img/background_computing/2.png',
+        imageSrc: './img/pagina/2.png',
       })
 
       doors = [
@@ -147,10 +152,11 @@ let levels = {
 
       background = new Sprite({
         position: {
-          x: 250,
-          y: 100,
+          x: (canvas.width - backgroundImageWidth) / 2,  // Centralizar horizontalmente
+          y: (canvas.height - backgroundImageHeight) / 2,  // Centralizar verticalmente
+ 
         },
-        imageSrc: '../img/background_computing/3.png',
+        imageSrc: './img/pagina/3.png',
       })
 
       doors = [
