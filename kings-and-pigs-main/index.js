@@ -1,10 +1,10 @@
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 
-canvas.width = 1024 // 1024
-canvas.height = 576 // 576
+canvas.width = 1024 
+canvas.height = 576 
 
-const backgroundImageWidth = 1024;  // Largura da imagem de fundo
+const backgroundImageWidth = 1024;  
 const backgroundImageHeight = 576; 
 
 let parsedCollisions
@@ -71,7 +71,7 @@ let level = 3
 let levels = {
   1: {
     init: () => {
-      parsedCollisions = collisionsTeste.parse2D()
+      parsedCollisions = collisionsLevel1.parse2D()
       collisionBlocks = parsedCollisions.createObjectsFrom2D()
       
       //Teste
@@ -85,8 +85,8 @@ let levels = {
 
       background = new Sprite({
         position: {
-          x: (canvas.width - backgroundImageWidth) / 2,  // Centralizar horizontalmente
-          y: (canvas.height - backgroundImageHeight) / 2,  // Centralizar verticalmente
+          x: (canvas.width - backgroundImageWidth) / 2,  
+          y: (canvas.height - backgroundImageHeight) / 2,  
  
         },
         imageSrc: './img/pagina/1.png',
@@ -95,8 +95,8 @@ let levels = {
       doors = [
         new Sprite({
           position: {
-            x: 840,
-            y: 160,
+            x: 860,
+            y: 410,
           },
           imageSrc: './img/doorOpen.png',
           frameRate: 5,
@@ -119,8 +119,8 @@ let levels = {
 
       background = new Sprite({
         position: {
-          x: (canvas.width - backgroundImageWidth) / 2,  // Centralizar horizontalmente
-          y: (canvas.height - backgroundImageHeight) / 2,  // Centralizar verticalmente
+          x: (canvas.width - backgroundImageWidth) / 2,  
+          y: (canvas.height - backgroundImageHeight) / 2,  
  
         },
         imageSrc: './img/pagina/2.png',
@@ -130,7 +130,7 @@ let levels = {
         new Sprite({
           position: {
             x: 772.0,
-            y: 336,
+            y: 410,
           },
           imageSrc: './img/doorOpen.png',
           frameRate: 5,
@@ -152,8 +152,8 @@ let levels = {
 
       background = new Sprite({
         position: {
-          x: (canvas.width - backgroundImageWidth) / 2,  // Centralizar horizontalmente
-          y: (canvas.height - backgroundImageHeight) / 2,  // Centralizar verticalmente
+          x: (canvas.width - backgroundImageWidth) / 2,  
+          y: (canvas.height - backgroundImageHeight) / 2,  
  
         },
         imageSrc: './img/pagina/3.png',
@@ -163,7 +163,40 @@ let levels = {
         new Sprite({
           position: {
             x: 176.0,
-            y: 335,
+            y: 410,
+          },
+          imageSrc: './img/doorOpen.png',
+          frameRate: 5,
+          frameBuffer: 5,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+    },
+  },
+  4: {
+    init: () => {
+      parsedCollisions = collisionsLevel4.parse2D()
+      collisionBlocks = parsedCollisions.createObjectsFrom2D()
+      player.collisionBlocks = collisionBlocks
+      player.position.x = 750
+      player.position.y = 230
+      if (player.currentAnimation) player.currentAnimation.isActive = false
+
+      background = new Sprite({
+        position: {
+          x: (canvas.width - backgroundImageWidth) / 2,  
+          y: (canvas.height - backgroundImageHeight) / 2,  
+ 
+        },
+        imageSrc: './img/pagina/4.png',
+      })
+
+      doors = [
+        new Sprite({
+          position: {
+            x: 176.0,
+            y: 410,
           },
           imageSrc: './img/doorOpen.png',
           frameRate: 5,
