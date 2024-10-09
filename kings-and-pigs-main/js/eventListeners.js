@@ -1,5 +1,12 @@
+let isNearComputer = false;
+
 window.addEventListener('keydown', (event) => {
   if (player.preventInput) return
+
+  if (event.key === 'Enter' && isNearComputer) {
+    showPopup();
+  }
+
   switch (event.key) {
     case 'w':
       for (let i = 0; i < doors.length; i++) {
@@ -48,3 +55,32 @@ window.addEventListener('keyup', (event) => {
       break
   }
 })
+
+
+// Função para mostrar o popup
+function showPopup() {
+  const popup = document.createElement('div');
+  popup.style.position = 'absolute';
+  popup.style.top = '50%';
+  popup.style.left = '50%';
+  popup.style.transform = 'translate(-50%, -50%)';
+  popup.style.padding = '20px';
+  popup.style.backgroundColor = 'white';
+  popup.style.border = '2px solid black';
+  popup.innerHTML = 'Você encontrou um computador!';
+  document.body.appendChild(popup);
+
+  // Fecha o popup após 3 segundos
+  setTimeout(() => {
+    popup.remove();
+  }, 3000);
+}
+
+function isColliding(rect1, rect2) {
+  return (
+    rect1.hitbox.position.x < rect2.position.x + rect2.width &&
+    rect1.hitbox.position.x + rect1.hitbox.width > rect2.position.x &&
+    rect1.hitbox.position.y < rect2.position.y + rect2.height &&
+    rect1.hitbox.position.y + rect1.hitbox.height > rect2.position.y
+  );
+}

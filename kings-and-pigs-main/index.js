@@ -43,10 +43,10 @@ const player = new Player({
       imageSrc: './img/king/catLeft.png',
     },
     enterDoor: {
-      frameRate: 8,
+      frameRate: 11,
       frameBuffer: 4,
-      loop: false,
-      imageSrc: './img/king/enterDoor.png',
+      loop: true,
+      imageSrc: './img/king/enterDoor1.png',
       onComplete: () => {
         console.log('completed animation')
         gsap.to(overlay, {
@@ -99,9 +99,9 @@ let levels = {
             x: 860,
             y: 410,
           },
-          imageSrc: './img/doorOpen.png',
-          frameRate: 5,
-          frameBuffer: 5,
+          imageSrc: './img/doorOpen1.png',
+          frameRate: 6,
+          frameBuffer: 6,
           loop: false,
           autoplay: false,
         }),
@@ -147,9 +147,9 @@ let levels = {
             x: 772.0,
             y: 410,
           },
-          imageSrc: './img/doorOpen.png',
-          frameRate: 5,
-          frameBuffer: 5,
+          imageSrc: './img/doorOpen1.png',
+          frameRate: 6,
+          frameBuffer: 6,
           loop: false,
           autoplay: false,
         }),
@@ -196,9 +196,9 @@ let levels = {
             x: 176.0,
             y: 410,
           },
-          imageSrc: './img/doorOpen.png',
-          frameRate: 5,
-          frameBuffer: 5,
+          imageSrc: './img/doorOpen1.png',
+          frameRate: 6,
+          frameBuffer: 6,
           loop: false,
           autoplay: false,
         }),
@@ -243,9 +243,9 @@ let levels = {
             x: 176.0,
             y: 410,
           },
-          imageSrc: './img/doorOpen.png',
-          frameRate: 5,
-          frameBuffer: 5,
+          imageSrc: './img/doorOpen1.png',
+          frameRate: 12,
+          frameBuffer: 2,
           loop: false,
           autoplay: false,
         }),
@@ -270,32 +270,80 @@ const overlay = {
   opacity: 0,
 }
 
-function animate() {
-  window.requestAnimationFrame(animate)
 
-  background.draw()
-  // collisionBlocks.forEach((collisionBlock) => {
-  //   collisionBlock.draw()
-  // })
+function animate() {
+  window.requestAnimationFrame(animate);
+
+  background.draw();
 
   doors.forEach((door) => {
-    door.draw()
-  })
+    door.draw();
+  });
 
+  player.update(); // Mova a atualização do player para antes da verificação de colisão
+
+  // Atualiza a hitbox do player
+  player.updateHitbox()
+
+  isNearComputer = false
   computers.forEach((computer) => {
-    computer.draw()
-  })
+    computer.draw();
 
-  player.handleInput(keys)
-  player.draw()
-  player.update()
+    // Verifica colisão entre o player e o computador
+    if (isColliding(player, computer)) {
+      isNearComputer = true
+      showPopup(); // Exibe o popup se houver colisão
+    }
+  });
 
-  c.save()
-  c.globalAlpha = overlay.opacity
-  c.fillStyle = 'black'
-  c.fillRect(0, 0, canvas.width, canvas.height)
-  c.restore()
+  player.handleInput(keys);
+  player.draw();
+
+  c.save();
+  c.globalAlpha = overlay.opacity;
+  c.fillStyle = 'black';
+  c.fillRect(0, 0, canvas.width, canvas.height);
+  c.restore();
 }
+
+
+
+// function animate() {
+//   window.requestAnimationFrame(animate)
+
+//   background.draw()
+//   // collisionBlocks.forEach((collisionBlock) => {
+//   //   collisionBlock.draw()
+//   // })
+
+//   doors.forEach((door) => {
+//     door.draw()
+//   })
+
+//   computers.forEach((computer) => {
+//     computer.draw()
+
+//     //Colisão com o computador
+//   if (isColliding(player, computer)) {
+//     showPopup(); // Exibe o popup se houver colisão
+//   }
+//   })
+
+//   player.handleInput(keys)
+//   player.draw()
+//   player.update()
+
+//   c.save()
+//   c.globalAlpha = overlay.opacity
+//   c.fillStyle = 'black'
+//   c.fillRect(0, 0, canvas.width, canvas.height)
+//   c.restore()
+// }
+
+
+
+// Função para verificar colisão
+
 
 levels[level].init()
 animate()
