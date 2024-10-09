@@ -40,8 +40,8 @@ class Player extends Sprite {
     //   this.hitbox.height
     // )
     this.checkForVerticalCollisions()
-    c.fillStyle = 'rgba(255, 0, 0, 0.5)';
-    c.fillRect(this.hitbox.position.x, this.hitbox.position.y, this.hitbox.width, this.hitbox.height);
+    // c.fillStyle = 'rgba(255, 0, 0, 0.5)';
+    // c.fillRect(this.hitbox.position.x, this.hitbox.position.y, this.hitbox.width, this.hitbox.height);
   }
 
   handleInput(keys) {
@@ -97,8 +97,8 @@ class Player extends Sprite {
 
     for (let i = 0; i < this.collisionBlocks.length; i++) {
       const collisionBlock = this.collisionBlocks[i]
-      c.fillStyle = 'rgba(255, 0, 0, 0.5)';
-      c.fillRect(collisionBlock.position.x, collisionBlock.position.y, 50, 50);
+      // c.fillStyle = 'rgba(255, 0, 0, 0.5)';
+      // c.fillRect(collisionBlock.position.x, collisionBlock.position.y, 50, 50);
 
       // if a collision exists
       if (

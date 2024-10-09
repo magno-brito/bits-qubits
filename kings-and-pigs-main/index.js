@@ -11,6 +11,7 @@ let parsedCollisions
 let collisionBlocks
 let background
 let doors
+let computers
 
 const player = new Player({
   imageSrc: './img/king/catRight.png',
@@ -105,6 +106,20 @@ let levels = {
           autoplay: false,
         }),
       ]
+
+      computers = [
+        new Sprite({
+          position: {
+            x: 100,
+            y: 440,
+          },
+          imageSrc: './img/pagina/computer.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
     },
   },
   2: {
@@ -139,6 +154,22 @@ let levels = {
           autoplay: false,
         }),
       ]
+
+      computers = [
+        new Sprite({
+          position: {
+            x: 870,
+            y: 65,
+          },
+          imageSrc: './img/pagina/computer.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+
+
     },
   },
   3: {
@@ -168,6 +199,20 @@ let levels = {
           imageSrc: './img/doorOpen.png',
           frameRate: 5,
           frameBuffer: 5,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+
+      computers = [
+        new Sprite({
+          position: {
+            x: 100,
+            y: 180,
+          },
+          imageSrc: './img/pagina/computer.png',
+          frameRate: 1,
+          frameBuffer: 1,
           loop: false,
           autoplay: false,
         }),
@@ -235,6 +280,10 @@ function animate() {
 
   doors.forEach((door) => {
     door.draw()
+  })
+
+  computers.forEach((computer) => {
+    computer.draw()
   })
 
   player.handleInput(keys)
