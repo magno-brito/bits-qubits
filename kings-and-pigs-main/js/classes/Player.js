@@ -3,7 +3,7 @@ class Player extends Sprite {
     super({ imageSrc, frameRate, animations, loop })
     this.position = {
       x: 200,
-      y: 200,
+      y: 250,
     }
 
     this.velocity = {
@@ -20,9 +20,10 @@ class Player extends Sprite {
   }
 
   update() {
-    // this is the blue box
-    // c.fillStyle = 'rgba(0, 0, 255, 0.5)'
-    // c.fillRect(this.position.x, this.position.y, this.width, this.height)
+
+    c.fillStyle = 'rgba(0, 0, 255, 0.5)'
+    c.fillRect(this.position.x, this.position.y , this.width, this.height)
+
 
     this.position.x += this.velocity.x
 
@@ -33,15 +34,15 @@ class Player extends Sprite {
 
     this.updateHitbox()
 
-    // c.fillRect(
-    //   this.hitbox.position.x,
-    //   this.hitbox.position.y,
-    //   this.hitbox.width,
-    //   this.hitbox.height
-    // )
+    c.fillRect(
+      this.hitbox.position.x,
+      this.hitbox.position.y,
+      this.hitbox.width,
+      this.hitbox.height
+    )
     this.checkForVerticalCollisions()
-    // c.fillStyle = 'rgba(255, 0, 0, 0.5)';
-    // c.fillRect(this.hitbox.position.x, this.hitbox.position.y, this.hitbox.width, this.hitbox.height);
+    c.fillStyle = 'rgba(255, 0, 0, 0.5)';
+    c.fillRect(this.hitbox.position.x, this.hitbox.position.y, this.hitbox.width, this.hitbox.height);
   }
 
   handleInput(keys) {
@@ -80,25 +81,25 @@ class Player extends Sprite {
   }
 
   updateHitbox() {
-    this.hitbox = {
-      position: {
-        x: this.position.x,
-        y: this.position.y,
-      },
-      width: 50,
-      height: 50,
+  
+      this.hitbox = {
+        position: {
+          x: this.position.x,
+          // Ajuste o valor de y para mover o hitbox para cima ou para baixo
+          y: this.position.y + this.height - 50,  // Substitua '50' pelo valor adequado
+        },
+        width: 50, // Largura do hitbox
+        height: 50, // Altura do hitbox
+      }
     }
-  }
+  
 
   checkForHorizontalCollisions() {
 
-
-    
-
     for (let i = 0; i < this.collisionBlocks.length; i++) {
       const collisionBlock = this.collisionBlocks[i]
-      // c.fillStyle = 'rgba(255, 0, 0, 0.5)';
-      // c.fillRect(collisionBlock.position.x, collisionBlock.position.y, 50, 50);
+      c.fillStyle = 'rgba(255, 0, 0, 0.5)';
+      c.fillRect(collisionBlock.position.x, collisionBlock.position.y, 50, 50);
 
       // if a collision exists
       if (

@@ -59,21 +59,33 @@ window.addEventListener('keyup', (event) => {
 
 // Função para mostrar o popup
 function showPopup() {
-  const popup = document.createElement('div');
-  popup.style.position = 'absolute';
-  popup.style.top = '50%';
-  popup.style.left = '50%';
-  popup.style.transform = 'translate(-50%, -50%)';
-  popup.style.padding = '20px';
-  popup.style.backgroundColor = 'white';
-  popup.style.border = '2px solid black';
-  popup.innerHTML = 'Você encontrou um computador!';
-  document.body.appendChild(popup);
+  // Criar o fundo overlay
+  const overlay = document.createElement('div');
+  overlay.style.position = 'fixed';
+  overlay.style.top = '0';
+  overlay.style.left = '0';
+  overlay.style.width = '100%';
+  overlay.style.height = '100%';
+  overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+  overlay.style.zIndex = '999';
+  document.body.appendChild(overlay);
 
-  // Fecha o popup após 3 segundos
-  setTimeout(() => {
-    popup.remove();
-  }, 3000);
+  // Carregar o conteúdo da página HTML
+  fetch('popup.html')
+    .then(response => response.text())
+    .then(html => {
+      // Inserir o HTML carregado no overlay
+      overlay.innerHTML = html;
+    })
+    .catch(error => {
+      console.error('Erro ao carregar o popup:', error);
+    });
+
+  // Função para fechar o popup
+  window.closePopup = function() {
+    overlay.remove();
+  };
+  
 }
 
 function isColliding(rect1, rect2) {

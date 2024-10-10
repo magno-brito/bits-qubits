@@ -43,26 +43,27 @@ const player = new Player({
       imageSrc: './img/king/catLeft.png',
     },
     enterDoor: {
-      frameRate: 11,
-      frameBuffer: 4,
+      frameRate: 6,
+      frameBuffer: 6,
       loop: true,
       imageSrc: './img/king/enterDoor1.png',
+      position: {
+        x: 176.0, // Ajuste conforme necessário
+        y: 410,   // Ajuste conforme necessário
+      },
       onComplete: () => {
-        console.log('completed animation')
+        console.log('completed animation');
         gsap.to(overlay, {
           opacity: 1,
           onComplete: () => {
-            level++
-
-            if (level === 4) level = 1
-            levels[level].init()
-            player.switchSprite('idleRight')
-            player.preventInput = false
-            gsap.to(overlay, {
-              opacity: 0,
-            })
+            level++;
+            if (level === 4) level = 1;
+            levels[level].init();
+            player.switchSprite('idleRight');
+            player.preventInput = false;
+            gsap.to(overlay, { opacity: 0 });
           },
-        })
+        });
       },
     },
   },
@@ -244,8 +245,8 @@ let levels = {
             y: 410,
           },
           imageSrc: './img/doorOpen1.png',
-          frameRate: 12,
-          frameBuffer: 2,
+          frameRate: 6,
+          frameBuffer: 6,
           loop: false,
           autoplay: false,
         }),
@@ -271,12 +272,16 @@ const overlay = {
 }
 
 
+let popupShown = false;
+
+
 function animate() {
   window.requestAnimationFrame(animate);
 
   background.draw();
 
   doors.forEach((door) => {
+    
     door.draw();
   });
 
@@ -285,16 +290,20 @@ function animate() {
   // Atualiza a hitbox do player
   player.updateHitbox()
 
-  isNearComputer = false
+  isNearComputer = false;
   computers.forEach((computer) => {
     computer.draw();
 
     // Verifica colisão entre o player e o computador
     if (isColliding(player, computer)) {
-      isNearComputer = true
-      showPopup(); // Exibe o popup se houver colisão
+      isNearComputer = true;
+      
     }
   });
+
+  if (!isNearComputer) {
+    popupShown = false;
+  }
 
   player.handleInput(keys);
   player.draw();
@@ -306,6 +315,8 @@ function animate() {
   c.restore();
 }
 
+levels[level].init()
+animate()
 
 
 // function animate() {
@@ -343,12 +354,6 @@ function animate() {
 
 
 // Função para verificar colisão
-
-
-levels[level].init()
-animate()
-
-
 
 
 
