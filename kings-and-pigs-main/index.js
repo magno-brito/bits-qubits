@@ -12,6 +12,7 @@ let collisionBlocks
 let background
 let doors
 let computers
+let fires
 
 const player = new Player({
   imageSrc: './img/king/catRight.png',
@@ -121,6 +122,23 @@ let levels = {
           autoplay: false,
         }),
       ]
+
+      fires = [
+        new Sprite({
+          position: {
+            x: 100,
+            y: 240,
+          },
+          imageSrc: './img/pagina/fire.png',
+          frameRate: 4,
+          frameBuffer: 4,
+          loop: false,
+          autoplay: false,
+        })
+      ]
+
+
+
     },
   },
   2: {
@@ -170,6 +188,21 @@ let levels = {
         }),
       ]
 
+      fires = [
+        new Sprite({
+          position: {
+            x: 100,
+            y: 240,
+          },
+          imageSrc: './img/pagina/fire.png',
+          frameRate: 4,
+          frameBuffer: 4,
+          loop: false,
+          autoplay: false,
+        })
+      ]
+
+
 
     },
   },
@@ -218,6 +251,22 @@ let levels = {
           autoplay: false,
         }),
       ]
+
+      fires = [
+        new Sprite({
+          position: {
+            x: 100,
+            y: 340,
+          },
+          imageSrc: './img/pagina/fire.png',
+          frameRate: 5,
+          frameBuffer: 10,
+          loop: true,
+          autoplay: true,
+        })
+      ]
+
+
     },
   },
   4: {
@@ -242,7 +291,7 @@ let levels = {
         new Sprite({
           position: {
             x: 176.0,
-            y: 410,
+            y: 430,
           },
           imageSrc: './img/doorOpen1.png',
           frameRate: 6,
@@ -294,7 +343,6 @@ function animate() {
   computers.forEach((computer) => {
     computer.draw();
 
-    // Verifica colisão entre o player e o computador
     if (isColliding(player, computer)) {
       isNearComputer = true;
       
@@ -304,6 +352,23 @@ function animate() {
   if (!isNearComputer) {
     popupShown = false;
   }
+
+  let fireSpeed = 2; // Define a velocidade do movimento
+let fireDirection = 1; // 1 para mover para a direita, -1 para mover para a esquerda
+
+fires.forEach((fire) => {
+  // Atualiza a posição do fire com base na direção e velocidade
+  fire.position.x += fireSpeed * fireDirection;
+
+  // Verifica os limites do canvas e inverte a direção se necessário
+  if (fire.position.x <= 0 || fire.position.x + fire.width >= canvas.width) {
+    fireDirection *= -1; // Inverte a direção
+  }
+
+  // Desenha o fire na nova posição
+  fire.draw();
+});
+
 
   player.handleInput(keys);
   player.draw();
@@ -318,95 +383,3 @@ function animate() {
 levels[level].init()
 animate()
 
-
-// function animate() {
-//   window.requestAnimationFrame(animate)
-
-//   background.draw()
-//   // collisionBlocks.forEach((collisionBlock) => {
-//   //   collisionBlock.draw()
-//   // })
-
-//   doors.forEach((door) => {
-//     door.draw()
-//   })
-
-//   computers.forEach((computer) => {
-//     computer.draw()
-
-//     //Colisão com o computador
-//   if (isColliding(player, computer)) {
-//     showPopup(); // Exibe o popup se houver colisão
-//   }
-//   })
-
-//   player.handleInput(keys)
-//   player.draw()
-//   player.update()
-
-//   c.save()
-//   c.globalAlpha = overlay.opacity
-//   c.fillStyle = 'black'
-//   c.fillRect(0, 0, canvas.width, canvas.height)
-//   c.restore()
-// }
-
-
-
-// Função para verificar colisão
-
-
-
-// const player = new Player({
-//   imageSrc: './img/king/idle.png',
-//   frameRate: 11,
-//   animations: {
-//     idleRight: {
-//       frameRate: 11,
-//       frameBuffer: 2,
-//       loop: true,
-//       imageSrc: './img/king/idle.png',
-//     },
-//     idleLeft: {
-//       frameRate: 11,
-//       frameBuffer: 2,
-//       loop: true,
-//       imageSrc: './img/king/idleLeft.png',
-//     },
-//     runRight: {
-//       frameRate: 8,
-//       frameBuffer: 4,
-//       loop: true,
-//       imageSrc: './img/king/runRight.png',
-//     },
-//     runLeft: {
-//       frameRate: 8,
-//       frameBuffer: 4,
-//       loop: true,
-//       imageSrc: './img/king/runLeft.png',
-//     },
-//     enterDoor: {
-//       frameRate: 8,
-//       frameBuffer: 4,
-//       loop: false,
-//       imageSrc: './img/king/enterDoor.png',
-//       onComplete: () => {
-//         console.log('completed animation')
-//         gsap.to(overlay, {
-//           opacity: 1,
-//           onComplete: () => {
-//             level++
-
-//             if (level === 4) level = 1
-//             levels[level].init()
-//             player.switchSprite('idleRight')
-//             player.preventInput = false
-//             gsap.to(overlay, {
-//               opacity: 0,
-//             })
-//           },
-//         })
-//       },
-//     },
-//   },
-// })

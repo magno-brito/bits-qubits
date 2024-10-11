@@ -7,6 +7,7 @@ class Sprite {
     frameBuffer = 2,
     loop = true,
     autoplay = true,
+    
   }) {
     this.position = position
     this.image = new Image()
