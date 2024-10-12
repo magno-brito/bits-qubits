@@ -13,6 +13,9 @@ let background
 let doors
 let computers
 let fires
+let fireSpeed = 2; // Define a velocidade do movimento
+let fireDirection = 1; // 1 para mover para a direita, -1 para mover para a esquerda
+
 
 const player = new Player({
   imageSrc: './img/king/catRight.png',
@@ -353,22 +356,27 @@ function animate() {
     popupShown = false;
   }
 
-  let fireSpeed = 2; // Define a velocidade do movimento
-let fireDirection = 1; // 1 para mover para a direita, -1 para mover para a esquerda
+ 
+  fires.forEach((fire) => {
+    // Atualiza a posição do fire com base na direção e velocidade
+    fire.position.x += fireSpeed * fireDirection;
+    console.log(fire.position.x)
+    console.log(fire.width)
+    console.log(canvas.width)
+    console.log(fireDirection)
+    // Verifica os limites do canvas e inverte a direção se necessário
+    if (fire.position.x > 512) {
+      fireDirection = -1
+    }
+    else if(fire.position.x < 0){
+      fireDirection = 1
+    }
+    // Desenha o fire na nova posição
+    fire.draw();
+  });
 
-fires.forEach((fire) => {
-  // Atualiza a posição do fire com base na direção e velocidade
-  fire.position.x += fireSpeed * fireDirection;
-
-  // Verifica os limites do canvas e inverte a direção se necessário
-  if (fire.position.x <= 0 || fire.position.x + fire.width >= canvas.width) {
-    fireDirection *= -1; // Inverte a direção
-  }
-
-  // Desenha o fire na nova posição
-  fire.draw();
-});
-
+  // Verifica colisão entre o player e o fire
+  checkPlayerFireCollision();
 
   player.handleInput(keys);
   player.draw();

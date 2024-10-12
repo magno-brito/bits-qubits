@@ -96,3 +96,15 @@ function isColliding(rect1, rect2) {
     rect1.hitbox.position.y + rect1.hitbox.height > rect2.position.y
   );
 }
+
+function checkPlayerFireCollision() {
+  fires.forEach((fire) => {
+    if (isColliding(player, fire)) {
+      if (!popupShown) {
+        popupShown = true;
+        alert("Fim do jogo!");
+        // Você pode colocar lógica adicional para reiniciar o jogo ou voltar ao menu principal aqui
+      }
+    }
+  });
+}
