@@ -4,7 +4,7 @@ window.addEventListener('keydown', (event) => {
   if (player.preventInput) return
 
   if (event.key === 'Enter' && isNearComputer) {
-    showPopup();
+    showPopup('popup.html');
   }
 
   switch (event.key) {
@@ -58,7 +58,7 @@ window.addEventListener('keyup', (event) => {
 
 
 // Função para mostrar o popup
-function showPopup() {
+function showPopup(nome) {
   // Criar o fundo overlay
   const overlay = document.createElement('div');
   overlay.style.position = 'fixed';
@@ -70,40 +70,40 @@ function showPopup() {
   overlay.style.zIndex = '999';
   document.body.appendChild(overlay);
 
-  // Carregar o conteúdo da página HTML
-  fetch('popup.html')
+  fetch(nome)
     .then(response => response.text())
     .then(html => {
-      // Inserir o HTML carregado no overlay
       overlay.innerHTML = html;
     })
     .catch(error => {
       console.error('Erro ao carregar o popup:', error);
     });
-
-  // Função para fechar o popup
   window.closePopup = function() {
     overlay.remove();
   };
   
 }
 
-function isColliding(rect1, rect2) {
+function isColliding(rect1, rect2, margin = 0) {
   return (
-    rect1.hitbox.position.x < rect2.position.x + rect2.width &&
-    rect1.hitbox.position.x + rect1.hitbox.width > rect2.position.x &&
-    rect1.hitbox.position.y < rect2.position.y + rect2.height &&
-    rect1.hitbox.position.y + rect1.hitbox.height > rect2.position.y
+    rect1.hitbox.position.x < rect2.position.x + rect2.width - margin &&
+    rect1.hitbox.position.x + rect1.hitbox.width > rect2.position.x + margin &&
+    rect1.hitbox.position.y < rect2.position.y + rect2.height - margin &&
+    rect1.hitbox.position.y + rect1.hitbox.height > rect2.position.y + margin
   );
 }
 
+
 function checkPlayerFireCollision() {
   fires.forEach((fire) => {
-    if (isColliding(player, fire)) {
+    if (isColliding(player, fire, 10)) {
       if (!popupShown) {
         popupShown = true;
-        alert("Fim do jogo!");
-        // Você pode colocar lógica adicional para reiniciar o jogo ou voltar ao menu principal aqui
+        showPopup('lost.html');
+         setTimeout(() => {
+          location.reload();
+        }, 2000); 
+      
       }
     }
   });
