@@ -129,14 +129,14 @@ let levels = {
       fires = [
         new Sprite({
           position: {
-            x: 100,
+            x: 600,
             y: 240,
           },
           imageSrc: './img/pagina/fire.png',
-          frameRate: 4,
-          frameBuffer: 4,
-          loop: false,
-          autoplay: false,
+          frameRate: 13,
+          frameBuffer: 10,
+          loop: true,
+          autoplay: true,
         })
       ]
 
@@ -194,14 +194,14 @@ let levels = {
       fires = [
         new Sprite({
           position: {
-            x: 100,
+            x: 800,
             y: 240,
           },
           imageSrc: './img/pagina/fire.png',
-          frameRate: 4,
-          frameBuffer: 4,
-          loop: false,
-          autoplay: false,
+          frameRate: 13,
+          frameBuffer: 10,
+          loop: true,
+          autoplay: true,
         })
       ]
 
@@ -230,7 +230,7 @@ let levels = {
       doors = [
         new Sprite({
           position: {
-            x: 176.0,
+            x: 100.0,
             y: 410,
           },
           imageSrc: './img/doorOpen1.png',
@@ -245,7 +245,7 @@ let levels = {
         new Sprite({
           position: {
             x: 100,
-            y: 180,
+            y: 185,
           },
           imageSrc: './img/pagina/computer.png',
           frameRate: 1,
@@ -258,8 +258,8 @@ let levels = {
       fires = [
         new Sprite({
           position: {
-            x: 100,
-            y: 340,
+            x: 150,
+            y: 300,
           },
           imageSrc: './img/pagina/fire.png',
           frameRate: 13,
@@ -368,7 +368,7 @@ function animate() {
     if (fire.position.x > 512) {
       fireDirection = -1
     }
-    else if(fire.position.x < 0){
+    else if(fire.position.x < 20){
       fireDirection = 1
     }
     // Desenha o fire na nova posição

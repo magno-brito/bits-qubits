@@ -102,7 +102,7 @@ function checkPlayerFireCollision() {
         showPopup('lost.html');
          setTimeout(() => {
           location.reload();
-        }, 2000); 
+        }, 5000); 
       
       }
     }
