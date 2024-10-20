@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
+    <title>Introdução</title>
+    <style>
+        /* Remove margens do body */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0033cc; /* Cor azul mais forte */
+        }
+
+        /* Faz a imagem ser responsiva e girar */
+        img {
+            max-width: 90%; /* Máximo de 90% da largura da tela */
+            max-height: 90%; /* Máximo de 90% da altura da tela */
+            animation: girar 10s forwards; /* Animação de rotação inicial */
+            object-fit: contain; /* Mantém a proporção da imagem */
+            transition: transform 0.5s; /* Suaviza a rotação e o aumento ao passar o mouse */
+        }
+
+        /* Animação para girar a imagem */
+        @keyframes girar {
+            0% {
+                transform: rotate(0deg);
+            }
+            20% {
+                transform: rotate(45deg); /* Rápido para 45 graus */
+            }
+            100% {
+                transform: rotate(360deg); /* Completa a rotação */
+            }
+        }
+
+        /* Efeito ao passar o mouse */
+        img:hover {
+            transform: scale(1.1); /* Apenas aumenta a imagem ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <img src="/img/introducao_girando.png" alt="Imagem girando" onclick="showPopup()">
+    
+    <script>
+        // Função para mostrar o popup
+        function showPopup() {
+            alert("Você clicou na imagem!");
+        }
+    </script>
+</body>
+</html>

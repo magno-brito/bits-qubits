@@ -132,9 +132,9 @@ let levels = {
             x: 600,
             y: 240,
           },
-          imageSrc: './img/pagina/fire.png',
-          frameRate: 13,
-          frameBuffer: 10,
+          imageSrc: './img/pagina/fire2.png',
+          frameRate: 8,
+          frameBuffer: 9,
           loop: true,
           autoplay: true,
         })
