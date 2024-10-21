@@ -1,6 +1,3 @@
-
-
-
 Array.prototype.parse2D = function () {
   const rows = []
   for (let i = 0; i < this.length; i += 16) {
@@ -15,7 +12,6 @@ Array.prototype.createObjectsFrom2D = function () {
   this.forEach((row, y) => {
     row.forEach((symbol, x) => {
       if (symbol === 292 || symbol === 250) {
-        //adiciona um collision dentro collisionblocks array
         objects.push(
           new CollisionBlock({
             position: {

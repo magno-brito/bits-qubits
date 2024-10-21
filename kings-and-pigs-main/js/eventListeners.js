@@ -57,9 +57,7 @@ window.addEventListener('keyup', (event) => {
 })
 
 
-// Função para mostrar o popup
 function showPopup(nome) {
-  // Criar o fundo overlay
   const overlay = document.createElement('div');
   overlay.style.position = 'fixed';
   overlay.style.top = '0';
