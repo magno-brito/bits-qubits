@@ -13,7 +13,7 @@ let background
 let doors
 let computers
 let fires
-let fireSpeed = 2; // Define a velocidade do movimento
+let fireSpeed = 2; 
 let fireDirection = 1; // 1 para mover para a direita, -1 para mover para a esquerda
 
 
@@ -73,18 +73,15 @@ const player = new Player({
   },
 })
 
-let level = 10
+let level = 4
 let levels = {
   1: {
     init: () => {
       parsedCollisions = collisionsLevel1.parse2D()
       collisionBlocks = parsedCollisions.createObjectsFrom2D()
-      
       //Teste
       c.fillStyle = 'rgba(255, 0, 0, 0.5)';
       console.log(typeof(collisionBlocks))
-
-
 
       player.collisionBlocks = collisionBlocks
       if (player.currentAnimation) player.currentAnimation.isActive = false
@@ -101,8 +98,8 @@ let levels = {
       doors = [
         new Sprite({
           position: {
-            x: 860,
-            y: 410,
+            x: 870,
+            y: 430,
           },
           imageSrc: './img/doorOpen1.png',
           frameRate: 12,
@@ -116,9 +113,9 @@ let levels = {
         new Sprite({
           position: {
             x: 100,
-            y: 440,
+            y: 445,
           },
-          imageSrc: './img/pagina/computer.png',
+          imageSrc: './img/pagina/computer1.png',
           frameRate: 1,
           frameBuffer: 1,
           loop: false,
@@ -166,8 +163,8 @@ let levels = {
       doors = [
         new Sprite({
           position: {
-            x: 772.0,
-            y: 410,
+            x: 60.0,
+            y: 430,
           },
           imageSrc: './img/doorOpen1.png',
           frameRate: 12,
@@ -230,8 +227,8 @@ let levels = {
       doors = [
         new Sprite({
           position: {
-            x: 100.0,
-            y: 410,
+            x: 50.0,
+            y: 420,
           },
           imageSrc: './img/doorOpen1.png',
           frameRate: 12,
@@ -247,7 +244,7 @@ let levels = {
             x: 100,
             y: 185,
           },
-          imageSrc: './img/pagina/computer.png',
+          imageSrc: './img/pagina/computer1.png',
           frameRate: 1,
           frameBuffer: 1,
           loop: false,
@@ -293,12 +290,12 @@ let levels = {
       doors = [
         new Sprite({
           position: {
-            x: 176.0,
-            y: 430,
+            x: 860,
+            y: 180,
           },
           imageSrc: './img/doorOpen1.png',
-          frameRate: 6,
-          frameBuffer: 6,
+          frameRate: 12,
+          frameBuffer: 4,
           loop: false,
           autoplay: false,
         }),
@@ -306,8 +303,8 @@ let levels = {
       computers = [
         new Sprite({
           position: {
-            x: 100,
-            y: 185,
+            x: 865,
+            y: 445,
           },
           imageSrc: './img/pagina/computer.png',
           frameRate: 1,
@@ -359,8 +356,8 @@ let levels = {
             y: 430,
           },
           imageSrc: './img/doorOpen1.png',
-          frameRate: 6,
-          frameBuffer: 6,
+          frameRate: 12,
+          frameBuffer: 4,
           loop: false,
           autoplay: false,
         }),
@@ -398,7 +395,7 @@ let levels = {
   },
   6: {
     init: () => {
-      parsedCollisions = collisionsLevel4.parse2D()
+      parsedCollisions = collisionsLevel6.parse2D()
       collisionBlocks = parsedCollisions.createObjectsFrom2D()
       player.collisionBlocks = collisionBlocks
       player.position.x = 750
@@ -417,12 +414,12 @@ let levels = {
       doors = [
         new Sprite({
           position: {
-            x: 176.0,
-            y: 430,
+            x: 870,
+            y: 440,
           },
           imageSrc: './img/doorOpen1.png',
-          frameRate: 6,
-          frameBuffer: 6,
+          frameRate: 12,
+          frameBuffer: 4,
           loop: false,
           autoplay: false,
         }),
@@ -433,7 +430,7 @@ let levels = {
             x: 100,
             y: 185,
           },
-          imageSrc: './img/pagina/computer.png',
+          imageSrc: './img/pagina/computer1.png',
           frameRate: 1,
           frameBuffer: 1,
           loop: false,
@@ -460,7 +457,7 @@ let levels = {
   },
   7: {
     init: () => {
-      parsedCollisions = collisionsLevel4.parse2D()
+      parsedCollisions = collisionsLevel7.parse2D()
       collisionBlocks = parsedCollisions.createObjectsFrom2D()
       player.collisionBlocks = collisionBlocks
       player.position.x = 750
@@ -479,12 +476,12 @@ let levels = {
       doors = [
         new Sprite({
           position: {
-            x: 176.0,
+            x: 380,
             y: 430,
           },
           imageSrc: './img/doorOpen1.png',
-          frameRate: 6,
-          frameBuffer: 6,
+          frameRate: 12,
+          frameBuffer: 4,
           loop: false,
           autoplay: false,
         }),
@@ -492,10 +489,10 @@ let levels = {
       computers = [
         new Sprite({
           position: {
-            x: 100,
-            y: 185,
+            x: 500,
+            y: 440,
           },
-          imageSrc: './img/pagina/computer.png',
+          imageSrc: './img/pagina/computer1.png',
           frameRate: 1,
           frameBuffer: 1,
           loop: false,
@@ -522,7 +519,7 @@ let levels = {
   },
   8: {
     init: () => {
-      parsedCollisions = collisionsLevel4.parse2D()
+      parsedCollisions = collisionsLevel8.parse2D()
       collisionBlocks = parsedCollisions.createObjectsFrom2D()
       player.collisionBlocks = collisionBlocks
       player.position.x = 750
@@ -541,12 +538,12 @@ let levels = {
       doors = [
         new Sprite({
           position: {
-            x: 176.0,
+            x: 255,
             y: 430,
           },
           imageSrc: './img/doorOpen1.png',
-          frameRate: 6,
-          frameBuffer: 6,
+          frameRate: 12,
+          frameBuffer: 4,
           loop: false,
           autoplay: false,
         }),
@@ -554,8 +551,8 @@ let levels = {
       computers = [
         new Sprite({
           position: {
-            x: 100,
-            y: 185,
+            x: 650,
+            y: 440,
           },
           imageSrc: './img/pagina/computer.png',
           frameRate: 1,
@@ -568,8 +565,8 @@ let levels = {
       fires = [
         new Sprite({
           position: {
-            x: 150,
-            y: 300,
+            x: 50,
+            y: 50,
           },
           imageSrc: './img/pagina/fire.png',
           frameRate: 13,
@@ -584,7 +581,7 @@ let levels = {
   },
   9: {
     init: () => {
-      parsedCollisions = collisionsLevel4.parse2D()
+      parsedCollisions = collisionsLevel9.parse2D()
       collisionBlocks = parsedCollisions.createObjectsFrom2D()
       player.collisionBlocks = collisionBlocks
       player.position.x = 750
@@ -603,12 +600,12 @@ let levels = {
       doors = [
         new Sprite({
           position: {
-            x: 176.0,
-            y: 430,
+            x: 470,
+            y: 155,
           },
           imageSrc: './img/doorOpen1.png',
-          frameRate: 6,
-          frameBuffer: 6,
+          frameRate: 12,
+          frameBuffer: 4,
           loop: false,
           autoplay: false,
         }),
@@ -616,8 +613,8 @@ let levels = {
       computers = [
         new Sprite({
           position: {
-            x: 100,
-            y: 185,
+            x: 880,
+            y: 445,
           },
           imageSrc: './img/pagina/computer.png',
           frameRate: 1,
@@ -646,7 +643,7 @@ let levels = {
   },
   10: {
     init: () => {
-      parsedCollisions = collisionsLevel4.parse2D()
+      parsedCollisions = collisionsLevel10.parse2D()
       collisionBlocks = parsedCollisions.createObjectsFrom2D()
       player.collisionBlocks = collisionBlocks
       player.position.x = 750
@@ -665,12 +662,12 @@ let levels = {
       doors = [
         new Sprite({
           position: {
-            x: 176.0,
-            y: 430,
+            x: 460,
+            y: 180,
           },
           imageSrc: './img/doorOpen1.png',
-          frameRate: 6,
-          frameBuffer: 6,
+          frameRate: 12,
+          frameBuffer: 4,
           loop: false,
           autoplay: false,
         }),
@@ -678,10 +675,10 @@ let levels = {
       computers = [
         new Sprite({
           position: {
-            x: 100,
-            y: 185,
+            x: 50,
+            y: 50,
           },
-          imageSrc: './img/pagina/computer.png',
+          imageSrc: './img/pagina/computer1.png',
           frameRate: 1,
           frameBuffer: 1,
           loop: false,
