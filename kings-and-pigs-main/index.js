@@ -73,7 +73,7 @@ const player = new Player({
   },
 })
 
-let level = 4
+let level = 10
 let levels = {
   1: {
     init: () => {
@@ -134,7 +134,21 @@ let levels = {
           frameBuffer: 9,
           loop: true,
           autoplay: true,
+        }),
+
+        new Sprite({
+          position: {
+            x: 700,
+            y: 420,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move:false
         })
+
       ]
 
 
@@ -191,21 +205,21 @@ let levels = {
       fires = [
         new Sprite({
           position: {
-            x: 800,
-            y: 240,
+            x: 700,
+            y: 420,
           },
-          imageSrc: './img/pagina/fire.png',
-          frameRate: 13,
-          frameBuffer: 10,
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
           loop: true,
           autoplay: true,
+          move: false
         })
       ]
-
-
-
     },
   },
+
+
   3: {
     init: () => {
       parsedCollisions = collisionsLevel3.parse2D()
@@ -255,15 +269,17 @@ let levels = {
       fires = [
         new Sprite({
           position: {
-            x: 150,
-            y: 300,
+            x: 300,
+            y: 160,
           },
-          imageSrc: './img/pagina/fire.png',
-          frameRate: 13,
-          frameBuffer: 10,
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
           loop: true,
           autoplay: true,
-        })
+          move: false
+        }),
+
       ]
 
 
@@ -317,15 +333,17 @@ let levels = {
       fires = [
         new Sprite({
           position: {
-            x: 150,
-            y: 300,
+            x: 650,
+            y: 420,
           },
-          imageSrc: './img/pagina/fire.png',
-          frameRate: 13,
-          frameBuffer: 10,
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
           loop: true,
           autoplay: true,
-        })
+          move: false
+        }),
+       
       ]
 
 
@@ -333,7 +351,7 @@ let levels = {
   },
   5: {
     init: () => {
-      parsedCollisions = collisionsLevel4.parse2D()
+      parsedCollisions = collisionsLevel5.parse2D()
       collisionBlocks = parsedCollisions.createObjectsFrom2D()
       player.collisionBlocks = collisionBlocks
       player.position.x = 750
@@ -352,8 +370,8 @@ let levels = {
       doors = [
         new Sprite({
           position: {
-            x: 176.0,
-            y: 430,
+            x: 470,
+            y: 110,
           },
           imageSrc: './img/doorOpen1.png',
           frameRate: 12,
@@ -365,8 +383,8 @@ let levels = {
       computers = [
         new Sprite({
           position: {
-            x: 100,
-            y: 185,
+            x: 890,
+            y: 445,
           },
           imageSrc: './img/pagina/computer.png',
           frameRate: 1,
@@ -379,14 +397,27 @@ let levels = {
       fires = [
         new Sprite({
           position: {
-            x: 150,
-            y: 300,
+            x: 750,
+            y: 420,
           },
-          imageSrc: './img/pagina/fire.png',
-          frameRate: 13,
-          frameBuffer: 10,
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
           loop: true,
           autoplay: true,
+          move: false
+        }),
+        new Sprite({
+          position: {
+            x: 250,
+            y: 420,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
         })
       ]
 
@@ -441,15 +472,44 @@ let levels = {
       fires = [
         new Sprite({
           position: {
-            x: 150,
-            y: 300,
+            x: 100,
+            y: 290,
           },
-          imageSrc: './img/pagina/fire.png',
-          frameRate: 13,
-          frameBuffer: 10,
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
           loop: true,
           autoplay: true,
-        })
+          move: false
+        }),
+
+          new Sprite({
+            position: {
+              x: 880,
+              y: 160,
+            },
+            imageSrc: './img/pagina/fire3.png',
+            frameRate: 8,
+            frameBuffer: 9,
+            loop: true,
+            autoplay: true,
+            move: false
+          }),
+
+          new Sprite({
+            position: {
+              x: 180,
+              y: 160,
+            },
+            imageSrc: './img/pagina/fire3.png',
+            frameRate: 8,
+            frameBuffer: 9,
+            loop: true,
+            autoplay: true,
+            move: false
+          }),
+
+
       ]
 
 
@@ -460,8 +520,8 @@ let levels = {
       parsedCollisions = collisionsLevel7.parse2D()
       collisionBlocks = parsedCollisions.createObjectsFrom2D()
       player.collisionBlocks = collisionBlocks
-      player.position.x = 750
-      player.position.y = 230
+      player.position.x = 80
+      player.position.y = 80
       if (player.currentAnimation) player.currentAnimation.isActive = false
 
       background = new Sprite({
@@ -503,15 +563,29 @@ let levels = {
       fires = [
         new Sprite({
           position: {
-            x: 150,
-            y: 300,
+            x: 780,
+            y: 420,
           },
-          imageSrc: './img/pagina/fire.png',
-          frameRate: 13,
-          frameBuffer: 10,
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
           loop: true,
           autoplay: true,
-        })
+          move: false
+        }),
+
+        new Sprite({
+          position: {
+            x: 80,
+            y: 420,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
       ]
 
 
@@ -522,8 +596,8 @@ let levels = {
       parsedCollisions = collisionsLevel8.parse2D()
       collisionBlocks = parsedCollisions.createObjectsFrom2D()
       player.collisionBlocks = collisionBlocks
-      player.position.x = 750
-      player.position.y = 230
+      player.position.x = 880
+      player.position.y = 440
       if (player.currentAnimation) player.currentAnimation.isActive = false
 
       background = new Sprite({
@@ -538,7 +612,7 @@ let levels = {
       doors = [
         new Sprite({
           position: {
-            x: 255,
+            x: 50,
             y: 430,
           },
           imageSrc: './img/doorOpen1.png',
@@ -551,7 +625,7 @@ let levels = {
       computers = [
         new Sprite({
           position: {
-            x: 650,
+            x: 630,
             y: 440,
           },
           imageSrc: './img/pagina/computer.png',
@@ -565,15 +639,29 @@ let levels = {
       fires = [
         new Sprite({
           position: {
-            x: 50,
-            y: 50,
+            x: 750,
+            y: 420,
           },
-          imageSrc: './img/pagina/fire.png',
-          frameRate: 13,
-          frameBuffer: 10,
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
           loop: true,
           autoplay: true,
-        })
+          move: false
+        }),
+
+        new Sprite({
+          position: {
+            x: 200,
+            y: 420,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
       ]
 
 
@@ -584,8 +672,8 @@ let levels = {
       parsedCollisions = collisionsLevel9.parse2D()
       collisionBlocks = parsedCollisions.createObjectsFrom2D()
       player.collisionBlocks = collisionBlocks
-      player.position.x = 750
-      player.position.y = 230
+      player.position.x = 80
+      player.position.y = 530
       if (player.currentAnimation) player.currentAnimation.isActive = false
 
       background = new Sprite({
@@ -600,8 +688,8 @@ let levels = {
       doors = [
         new Sprite({
           position: {
-            x: 470,
-            y: 155,
+            x: 480,
+            y: 165,
           },
           imageSrc: './img/doorOpen1.png',
           frameRate: 12,
@@ -627,15 +715,28 @@ let levels = {
       fires = [
         new Sprite({
           position: {
-            x: 150,
-            y: 300,
+            x: 700,
+            y: 420,
           },
-          imageSrc: './img/pagina/fire.png',
-          frameRate: 13,
-          frameBuffer: 10,
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
           loop: true,
           autoplay: true,
-        })
+          move: false
+        }),
+        new Sprite({
+          position: {
+            x: 80,
+            y: 290,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
       ]
 
 
@@ -646,8 +747,8 @@ let levels = {
       parsedCollisions = collisionsLevel10.parse2D()
       collisionBlocks = parsedCollisions.createObjectsFrom2D()
       player.collisionBlocks = collisionBlocks
-      player.position.x = 750
-      player.position.y = 230
+      player.position.x = 850
+      player.position.y = 530
       if (player.currentAnimation) player.currentAnimation.isActive = false
 
       background = new Sprite({
@@ -662,8 +763,8 @@ let levels = {
       doors = [
         new Sprite({
           position: {
-            x: 460,
-            y: 180,
+            x: 60,
+            y: 430,
           },
           imageSrc: './img/doorOpen1.png',
           frameRate: 12,
@@ -689,15 +790,41 @@ let levels = {
       fires = [
         new Sprite({
           position: {
-            x: 150,
-            y: 300,
+            x: 200,
+            y: 420,
           },
-          imageSrc: './img/pagina/fire.png',
-          frameRate: 13,
-          frameBuffer: 10,
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
           loop: true,
           autoplay: true,
-        })
+          move: false
+        }),
+
+        new Sprite({
+          position: {
+            x: 880,
+            y: 290,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+        new Sprite({
+          position: {
+            x: 80,
+            y: 290,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
       ]
 
 
@@ -756,24 +883,20 @@ function animate() {
 
  
   fires.forEach((fire) => {
-    // Atualiza a posição do fire com base na direção e velocidade
-    fire.position.x += fireSpeed * fireDirection;
-    console.log(fire.position.x)
-    console.log(fire.width)
-    console.log(canvas.width)
-    console.log(fireDirection)
-    // Verifica os limites do canvas e inverte a direção se necessário
-    if (fire.position.x > 512) {
-      fireDirection = -1
+    if (fire.move === true) {
+      fire.position.x += fireSpeed * fireDirection;
+      
+      if (fire.position.x > 512) {
+        fireDirection = -1;  
+      } else if (fire.position.x < 20) {
+        fireDirection = 1; 
+      }
     }
-    else if(fire.position.x < 20){
-      fireDirection = 1
-    }
-    // Desenha o fire na nova posição
     fire.draw();
   });
+  
 
-  // Verifica colisão entre o player e o fire
+  
   checkPlayerFireCollision();
 
   player.handleInput(keys);

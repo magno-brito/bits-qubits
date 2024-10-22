@@ -7,6 +7,8 @@ class Sprite {
     frameBuffer = 2,
     loop = true,
     autoplay = true,
+    move = true,
+    
     
   }) {
     this.position = position
@@ -25,6 +27,7 @@ class Sprite {
     this.animations = animations
     this.loop = loop
     this.autoplay = autoplay
+    this.move = move
     this.currentAnimation
 
     if (this.animations) {
