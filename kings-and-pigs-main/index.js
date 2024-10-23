@@ -14,7 +14,7 @@ let doors
 let computers
 let fires
 let fireSpeed = 2; 
-let fireDirection = 1; // 1 para mover para a direita, -1 para mover para a esquerda
+// 1 para mover para a direita, -1 para mover para a esquerda
 
 
 const player = new Player({
@@ -73,7 +73,7 @@ const player = new Player({
   },
 })
 
-let level = 10
+let level = 1
 let levels = {
   1: {
     init: () => {
@@ -129,11 +129,14 @@ let levels = {
             x: 600,
             y: 240,
           },
-          imageSrc: './img/pagina/fire2.png',
-          frameRate: 8,
-          frameBuffer: 9,
+          imageSrc: './img/pagina/fire4.png',
+          frameRate: 6,
+          frameBuffer: 8,
           loop: true,
           autoplay: true,
+          move: true,
+          limit_left: 100,
+          limit_right: 300
         }),
 
         new Sprite({
@@ -147,7 +150,8 @@ let levels = {
           loop: true,
           autoplay: true,
           move:false
-        })
+        }),
+
 
       ]
 
@@ -203,6 +207,39 @@ let levels = {
       ]
 
       fires = [
+
+        new Sprite({
+          position: {
+            x: 600,
+            y: 240,
+          },
+          imageSrc: './img/pagina/fire4.png',
+          frameRate: 6,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 100,
+          limit_right: 300,
+          direction: 1
+        }),
+
+        new Sprite({
+          position: {
+            x: 300,
+            y: 240,
+          },
+          imageSrc: './img/pagina/fire5.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 100,
+          limit_right: 300,
+          direction: 1
+        }),
+
         new Sprite({
           position: {
             x: 700,
@@ -884,16 +921,20 @@ function animate() {
  
   fires.forEach((fire) => {
     if (fire.move === true) {
-      fire.position.x += fireSpeed * fireDirection;
-      
-      if (fire.position.x > 512) {
-        fireDirection = -1;  
-      } else if (fire.position.x < 20) {
-        fireDirection = 1; 
+      // Mude a posição do fogo com base em sua própria direção
+      fire.position.x += fireSpeed * fire.direction;
+    
+      // Verifique se o fogo ultrapassa seus limites
+      if (fire.position.x > fire.limit_right) {
+        fire.direction = -1;  // Muda a direção para a esquerda
+      } else if (fire.position.x < fire.limit_left) {
+        fire.direction = 1;   // Muda a direção para a direita
       }
     }
-    fire.draw();
+    
+    fire.draw();  // Desenha o fogo na nova posição
   });
+  
   
 
   

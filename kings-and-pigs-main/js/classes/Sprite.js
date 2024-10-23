@@ -8,6 +8,9 @@ class Sprite {
     loop = true,
     autoplay = true,
     move = true,
+    limit_left = 0,
+    limit_right = 0,
+    direction = 1
     
     
   }) {
@@ -28,6 +31,9 @@ class Sprite {
     this.loop = loop
     this.autoplay = autoplay
     this.move = move
+    this.limit_left = limit_left
+    this.limit_right = limit_right
+    this.direction = 1
     this.currentAnimation
 
     if (this.animations) {
