@@ -73,7 +73,7 @@ const player = new Player({
   },
 })
 
-let level = 1
+let level = 6
 let levels = {
   1: {
     init: () => {
@@ -227,7 +227,7 @@ let levels = {
         new Sprite({
           position: {
             x: 300,
-            y: 240,
+            y: 120,
           },
           imageSrc: './img/pagina/fire5.png',
           frameRate: 7,
@@ -236,7 +236,7 @@ let levels = {
           autoplay: true,
           move: true,
           limit_left: 100,
-          limit_right: 300,
+          limit_right: 700,
           direction: 1
         }),
 
@@ -317,6 +317,22 @@ let levels = {
           move: false
         }),
 
+        new Sprite({
+          position: {
+            x: 600,
+            y: 280,
+          },
+          imageSrc: './img/pagina/fire4.png',
+          frameRate: 6,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 600,
+          limit_right: 900,
+          direction: 1
+        }),
+
       ]
 
 
@@ -327,8 +343,8 @@ let levels = {
       parsedCollisions = collisionsLevel4.parse2D()
       collisionBlocks = parsedCollisions.createObjectsFrom2D()
       player.collisionBlocks = collisionBlocks
-      player.position.x = 750
-      player.position.y = 230
+      player.position.x = 80
+      player.position.y = 80
       if (player.currentAnimation) player.currentAnimation.isActive = false
 
       background = new Sprite({
@@ -380,6 +396,38 @@ let levels = {
           autoplay: true,
           move: false
         }),
+
+        new Sprite({
+          position: {
+            x: 300,
+            y: 220,
+          },
+          imageSrc: './img/pagina/fire5.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 100,
+          limit_right: 400,
+          direction: 1
+        }),
+
+        new Sprite({
+          position: {
+            x: 80,
+            y: 280,
+          },
+          imageSrc: './img/pagina/fire4.png',
+          frameRate: 6,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 100,
+          limit_right: 400,
+          direction: 1
+        }),
        
       ]
 
@@ -391,8 +439,8 @@ let levels = {
       parsedCollisions = collisionsLevel5.parse2D()
       collisionBlocks = parsedCollisions.createObjectsFrom2D()
       player.collisionBlocks = collisionBlocks
-      player.position.x = 750
-      player.position.y = 230
+      player.position.x = 80
+      player.position.y = 430
       if (player.currentAnimation) player.currentAnimation.isActive = false
 
       background = new Sprite({
@@ -432,30 +480,37 @@ let levels = {
       ]
 
       fires = [
-        new Sprite({
-          position: {
-            x: 750,
-            y: 420,
-          },
-          imageSrc: './img/pagina/fire3.png',
-          frameRate: 8,
-          frameBuffer: 9,
-          loop: true,
-          autoplay: true,
-          move: false
-        }),
-        new Sprite({
-          position: {
-            x: 250,
-            y: 420,
-          },
-          imageSrc: './img/pagina/fire3.png',
-          frameRate: 8,
-          frameBuffer: 9,
-          loop: true,
-          autoplay: true,
-          move: false
-        })
+      new Sprite({
+        position: {
+          x: 400,
+          y: 430,
+        },
+        imageSrc: './img/pagina/fire5.png',
+        frameRate: 7,
+        frameBuffer: 8,
+        loop: true,
+        autoplay: true,
+        move: true,
+        limit_left: 200,
+        limit_right: 500,
+        direction: 1
+      }),
+
+      new Sprite({
+        position: {
+          x: 800,
+          y: 250,
+        },
+        imageSrc: './img/pagina/fire4.png',
+        frameRate: 6,
+        frameBuffer: 8,
+        loop: true,
+        autoplay: true,
+        move: true,
+        limit_left: 100,
+        limit_right: 800,
+        direction: 1
+      }),
       ]
 
 
@@ -466,8 +521,8 @@ let levels = {
       parsedCollisions = collisionsLevel6.parse2D()
       collisionBlocks = parsedCollisions.createObjectsFrom2D()
       player.collisionBlocks = collisionBlocks
-      player.position.x = 750
-      player.position.y = 230
+      player.position.x = 80
+      player.position.y = 80
       if (player.currentAnimation) player.currentAnimation.isActive = false
 
       background = new Sprite({
@@ -544,6 +599,38 @@ let levels = {
             loop: true,
             autoplay: true,
             move: false
+          }),
+
+          new Sprite({
+            position: {
+              x: 400,
+              y: 100,
+            },
+            imageSrc: './img/pagina/fire5.png',
+            frameRate: 7,
+            frameBuffer: 8,
+            loop: true,
+            autoplay: true,
+            move: true,
+            limit_left: 300,
+            limit_right: 630,
+            direction: 1
+          }),
+  
+          new Sprite({
+            position: {
+              x: 80,
+              y: 430,
+            },
+            imageSrc: './img/pagina/fire4.png',
+            frameRate: 6,
+            frameBuffer: 8,
+            loop: true,
+            autoplay: true,
+            move: true,
+            limit_left: 80,
+            limit_right: 800,
+            direction: 1
           }),
 
 
@@ -899,9 +986,8 @@ function animate() {
     door.draw();
   });
 
-  player.update(); // Mova a atualização do player para antes da verificação de colisão
+  player.update(); 
 
-  // Atualiza a hitbox do player
   player.updateHitbox()
 
   isNearComputer = false;
@@ -921,18 +1007,14 @@ function animate() {
  
   fires.forEach((fire) => {
     if (fire.move === true) {
-      // Mude a posição do fogo com base em sua própria direção
       fire.position.x += fireSpeed * fire.direction;
-    
-      // Verifique se o fogo ultrapassa seus limites
       if (fire.position.x > fire.limit_right) {
-        fire.direction = -1;  // Muda a direção para a esquerda
+        fire.direction = -1;  
       } else if (fire.position.x < fire.limit_left) {
-        fire.direction = 1;   // Muda a direção para a direita
+        fire.direction = 1;  
       }
     }
-    
-    fire.draw();  // Desenha o fogo na nova posição
+    fire.draw();  
   });
   
   
