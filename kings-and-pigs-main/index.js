@@ -73,7 +73,7 @@ const player = new Player({
   },
 })
 
-let level = 6
+let level = 10
 let levels = {
   1: {
     init: () => {
@@ -687,7 +687,7 @@ let levels = {
       fires = [
         new Sprite({
           position: {
-            x: 780,
+            x: 770,
             y: 420,
           },
           imageSrc: './img/pagina/fire3.png',
@@ -709,6 +709,22 @@ let levels = {
           loop: true,
           autoplay: true,
           move: false
+        }),
+
+        new Sprite({
+          position: {
+            x: 50,
+            y: 230,
+          },
+          imageSrc: './img/pagina/fire5.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 50,
+          limit_right: 260,
+          direction: 1
         }),
       ]
 
@@ -786,6 +802,55 @@ let levels = {
           autoplay: true,
           move: false
         }),
+
+        new Sprite({
+          position: {
+            x: 80,
+            y: 50,
+          },
+          imageSrc: './img/pagina/fire4.png',
+          frameRate: 6,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 80,
+          limit_right: 900,
+          direction: 1
+        }),
+
+        new Sprite({
+          position: {
+            x: 80,
+            y: 115,
+          },
+          imageSrc: './img/pagina/fire5.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 80,
+          limit_right: 900,
+          direction: 1
+        }),
+
+        new Sprite({
+          position: {
+            x: 80,
+            y: 180,
+          },
+          imageSrc: './img/pagina/fire4.png',
+          frameRate: 6,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 80,
+          limit_right: 900,
+          direction: 1
+        }),
+
       ]
 
 
@@ -861,11 +926,59 @@ let levels = {
           autoplay: true,
           move: false
         }),
+
+        new Sprite({
+          position: {
+            x: 50,
+            y: 150,
+          },
+          imageSrc: './img/pagina/fire4.png',
+          frameRate: 6,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 50,
+          limit_right: 400,
+          direction: 1
+        }),
+
+        new Sprite({
+          position: {
+            x: 900,
+            y: 150,
+          },
+          imageSrc: './img/pagina/fire5.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 580,
+          limit_right: 900,
+          direction: 1
+        }),
+
+        new Sprite({
+          position: {
+            x: 80,
+            y: 80,
+          },
+          imageSrc: './img/pagina/fire6.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 80,
+          limit_right: 800,
+          direction: 1
+        }),
       ]
-
-
     },
   },
+
+
   10: {
     init: () => {
       parsedCollisions = collisionsLevel10.parse2D()
@@ -949,6 +1062,40 @@ let levels = {
           autoplay: true,
           move: false
         }),
+
+        new Sprite({
+          position: {
+            x: 50,
+            y: 170,
+          },
+          imageSrc: './img/pagina/fire6.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 50,
+          limit_right: 900,
+          direction: 1
+        }),
+
+        new Sprite({
+          position: {
+            x: 150,
+            y: 300,
+          },
+          imageSrc: './img/pagina/fire6.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 150,
+          limit_right: 850,
+          direction: 1
+        }),
+
+
       ]
 
 
