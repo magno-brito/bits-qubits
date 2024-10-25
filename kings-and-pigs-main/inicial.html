@@ -4,89 +4,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Start Bootstrap</title>
-    <!-- Bootstrap CSS -->
+    <title>Bits & Qubits Adventures</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Gradient for Header and Footer */
-        .gradient-bg {
-            background: linear-gradient(90deg, #5F0A87, #A4508B);
-            color: white;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0; /* Remove margens do body */
+            padding: 0; /* Remove preenchimentos do body */
+        }
+
+        .navbar {
+            background: radial-gradient(circle at 52.1% -29.6%, rgb(144, 17, 105) 0%, rgb(51, 0, 131) 100.2%);
+            padding: 10px 15px; /* Ajuste o padding da navbar */
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+            font-weight: bold;
+            font-size: 14pt;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #f85a59;
+        }
+
+        .about-section {
+            background-color: #f7f7f7;
+        }
+
+        .about-section h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color:#3d4ecf
+        }
+
+        .about-section p {
+            color: purple;
+            line-height: 1.6;
+        }
+
+        #blochSphereCanvas {
+            width: 100%; /* Ocupará a largura do container */
+            max-width: 400px; /* Limita a largura máxima */
+            height: auto; /* Altura automática */
+        }
+
+        .btn-purple {
+            background-color: purple; /* Cor de fundo roxa */
+            color: white; /* Cor do texto branca */
+            font-size: 1rem; /* Tamanho da fonte */
+            font-weight: bold; /* Negrito */
+            border: none; /* Remove a borda padrão */
+            padding: 10px 20px; /* Preenchimento interno */
+            border-radius: 5px; /* Bordas arredondadas */
+            transition: background-color 0.3s; /* Efeito de transição suave */
+        }
+
+        .btn-purple:hover {
+            background-color: #3d4ecf; /* Cor ao passar o mouse */
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-danger">
-
-        <div class="collapse navbar-collapse" id="navbarNav">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">
+            <img src="/img/logo.png" alt="Logo" style="height: 150px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-start" id="navbarNav">
             <ul class="navbar-nav">
-                <!-- Removed ml-auto to align items to the left -->
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
-                </li>
+                <li class="nav-item"><a class="nav-link" href="#">Início</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Sobre o Jogo</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Bits</a></li>
+                <li class="nav-item"><a class="nav-link" href="/js/esfera_bloch.html">Qubits</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Computadores Quânticos</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Header Section with Gradient -->
-    <header class="gradient-bg text-center py-5">
+    <section class="about-section">
         <div class="container">
-            <h1 class="display-4">Present your business in a whole new way</h1>
-            <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world's most popular front-end open source toolkit!</p>
-            <a href="#" class="btn btn-light btn-lg">Get Started</a>
-            <a href="#" class="btn btn-outline-light btn-lg">Learn More</a>
-        </div>
-    </header>
-
-    <!-- Features Section -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-lg-4">
-                    <i class="fas fa-folder fa-4x text-primary mb-3"></i>
-                    <h3 class="h5">Featured title</h3>
-                    <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                    <a href="#" class="btn btn-link">Call to action →</a>
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2>Aprenda Sobre Computação Quântica Jogando</h2>
+                    <p>A computação quântica é uma área que une principalmente a Física e a Ciência da Computação. Com computadores quânticos é possível implementar algoritmos extremamente rápidos. Nesta página você pode explorar sobre computação quântica de uma forma dinâmica. </p>
+                    <a href="/index.html" class="btn btn-purple">Jogar</a>
                 </div>
-                <div class="col-lg-4">
-                    <i class="fas fa-folder fa-4x text-primary mb-3"></i>
-                    <h3 class="h5">Featured title</h3>
-                    <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                    <a href="#" class="btn btn-link">Call to action →</a>
-                </div>
-                <div class="col-lg-4">
-                    <i class="fas fa-folder fa-4x text-primary mb-3"></i>
-                    <h3 class="h5">Featured title</h3>
-                    <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                    <a href="#" class="btn btn-link">Call to action →</a>
+                <div class="col-md-6 text-center">
+                    <div id="blochSphereCanvas"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer with Gradient -->
-    <footer class="gradient-bg text-center py-4">
-        <div class="container">
-            <p class="mb-0">&copy; 2024 Cachoeiro de Itapemirim - ES</p>
-        </div>
-    </footer>
-
-    <!-- Bootstrap and FontAwesome JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="/js/esfera.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
 </body>
 
 </html>
