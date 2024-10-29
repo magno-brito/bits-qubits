@@ -4,7 +4,7 @@ window.addEventListener('keydown', (event) => {
   if (player.preventInput) return
 
   if (event.key === 'Enter' && isNearComputer) {
-    showPopup('popup.html');
+    showPopup('popup', level);
   }
 
   switch (event.key) {
@@ -56,8 +56,7 @@ window.addEventListener('keyup', (event) => {
   }
 })
 
-
-function showPopup(nome) {
+function showPopup(nome, fase) {
   const overlay = document.createElement('div');
   overlay.style.position = 'fixed';
   overlay.style.top = '0';
@@ -68,7 +67,14 @@ function showPopup(nome) {
   overlay.style.zIndex = '999';
   document.body.appendChild(overlay);
 
-  fetch(nome)
+  // Concatenação do nome do arquivo
+  let arquivo = ''
+  if(fase == 0) {
+    arquivo = nome
+  }else {
+    arquivo = `popups/${nome}${fase}.html`;
+  }
+  fetch(arquivo)
     .then(response => response.text())
     .then(html => {
       overlay.innerHTML = html;
@@ -76,11 +82,14 @@ function showPopup(nome) {
     .catch(error => {
       console.error('Erro ao carregar o popup:', error);
     });
+
   window.closePopup = function() {
     overlay.remove();
   };
-  
 }
+
+  
+
 
 function isColliding(rect1, rect2, margin = 0) {
   return (
@@ -97,7 +106,7 @@ function checkPlayerFireCollision() {
     if (isColliding(player, fire, 10)) {
       if (!popupShown) {
         popupShown = true;
-        showPopup('lost.html');
+        showPopup('lost.html',0);
          setTimeout(() => {
           location.reload();
         }, 5000); 

@@ -73,7 +73,7 @@ const player = new Player({
   },
 })
 
-let level = 10
+let level = 1
 let levels = {
   1: {
     init: () => {
@@ -1164,8 +1164,6 @@ function animate() {
     fire.draw();  
   });
   
-  
-
   
   checkPlayerFireCollision();
 
