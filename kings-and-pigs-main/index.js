@@ -18,39 +18,39 @@ let fireSpeed = 2;
 
 
 const player = new Player({
-  imageSrc: './img/king/catRight.png',
+  imageSrc: './img/cat/catRight.png',
   frameRate: 12,
   animations: {
     idleRight: {
       frameRate: 12,
       frameBuffer: 1,
       loop: false,
-      imageSrc: './img/king/catRight.png',
+      imageSrc: './img/cat/catRight.png',
     },
   
     idleLeft: {
       frameRate: 12,
       frameBuffer: 1,
       loop: false,
-      imageSrc: './img/king/catLeft.png',
+      imageSrc: './img/cat/catLeft.png',
     },
     runRight: {
       frameRate: 12,
       frameBuffer: 1,
       loop: true,
-      imageSrc: './img/king/catRight.png',
+      imageSrc: './img/cat/catRight.png',
     },
     runLeft: {
       frameRate: 12,
       frameBuffer: 1,
       loop: true,
-      imageSrc: './img/king/catLeft.png',
+      imageSrc: './img/cat/catLeft.png',
     },
     enterDoor: {
       frameRate: 6,
       frameBuffer: 6,
       loop: true,
-      imageSrc: './img/king/enterDoor1.png',
+      imageSrc: './img/cat/enterDoor1.png',
       position: {
         x: 176.0, // Ajuste conforme necessário
         y: 410,   // Ajuste conforme necessário
@@ -101,8 +101,8 @@ let levels = {
             x: 870,
             y: 430,
           },
-          imageSrc: './img/doorOpen1.png',
-          frameRate: 12,
+          imageSrc: './img/doors/doorTest1.png',
+          frameRate: 6,
           frameBuffer: 6,
           loop: false,
           autoplay: false,
@@ -184,8 +184,8 @@ let levels = {
             x: 60.0,
             y: 430,
           },
-          imageSrc: './img/doorOpen1.png',
-          frameRate: 12,
+          imageSrc: './img/doors/doorTest2.png',
+          frameRate: 6,
           frameBuffer: 6,
           loop: false,
           autoplay: false,
@@ -255,8 +255,6 @@ let levels = {
       ]
     },
   },
-
-
   3: {
     init: () => {
       parsedCollisions = collisionsLevel3.parse2D()
@@ -278,12 +276,12 @@ let levels = {
       doors = [
         new Sprite({
           position: {
-            x: 50.0,
-            y: 420,
+            x: 60,
+            y: 440,
           },
-          imageSrc: './img/doorOpen1.png',
-          frameRate: 12,
-          frameBuffer: 4,
+          imageSrc: 'img/doors/doorTest2.png',
+          frameRate: 6,
+          frameBuffer: 6,
           loop: false,
           autoplay: false,
         }),
@@ -362,9 +360,9 @@ let levels = {
             x: 860,
             y: 180,
           },
-          imageSrc: './img/doorOpen1.png',
-          frameRate: 12,
-          frameBuffer: 4,
+          imageSrc: 'img/doors/doorTest2.png',
+          frameRate: 6,
+          frameBuffer: 6,
           loop: false,
           autoplay: false,
         }),
@@ -456,11 +454,11 @@ let levels = {
         new Sprite({
           position: {
             x: 470,
-            y: 110,
+            y: 115,
           },
-          imageSrc: './img/doorOpen1.png',
-          frameRate: 12,
-          frameBuffer: 4,
+          imageSrc: 'img/doors/doorTest2.png',
+          frameRate: 6,
+          frameBuffer: 6,
           loop: false,
           autoplay: false,
         }),
@@ -538,11 +536,11 @@ let levels = {
         new Sprite({
           position: {
             x: 870,
-            y: 440,
+            y: 435,
           },
-          imageSrc: './img/doorOpen1.png',
-          frameRate: 12,
-          frameBuffer: 4,
+          imageSrc: 'img/doors/doorTest2.png',
+          frameRate: 6,
+          frameBuffer: 6,
           loop: false,
           autoplay: false,
         }),
@@ -663,9 +661,9 @@ let levels = {
             x: 380,
             y: 430,
           },
-          imageSrc: './img/doorOpen1.png',
-          frameRate: 12,
-          frameBuffer: 4,
+          imageSrc: 'img/doors/doorTest2.png',
+          frameRate: 6,
+          frameBuffer: 6,
           loop: false,
           autoplay: false,
         }),
@@ -752,12 +750,12 @@ let levels = {
       doors = [
         new Sprite({
           position: {
-            x: 50,
-            y: 430,
+            x: 55,
+            y: 440,
           },
-          imageSrc: './img/doorOpen1.png',
-          frameRate: 12,
-          frameBuffer: 4,
+          imageSrc: 'img/doors/doorTest2.png',
+          frameRate: 6,
+          frameBuffer: 6,
           loop: false,
           autoplay: false,
         }),
@@ -880,9 +878,9 @@ let levels = {
             x: 480,
             y: 165,
           },
-          imageSrc: './img/doorOpen1.png',
-          frameRate: 12,
-          frameBuffer: 4,
+          imageSrc: 'img/doors/doorTest2.png',
+          frameRate: 6,
+          frameBuffer: 6,
           loop: false,
           autoplay: false,
         }),
@@ -977,8 +975,6 @@ let levels = {
       ]
     },
   },
-
-
   10: {
     init: () => {
       parsedCollisions = collisionsLevel10.parse2D()
@@ -1003,9 +999,9 @@ let levels = {
             x: 60,
             y: 430,
           },
-          imageSrc: './img/doorOpen1.png',
-          frameRate: 12,
-          frameBuffer: 4,
+          imageSrc: 'img/doors/doorTest2.png',
+          frameRate: 6,
+          frameBuffer: 6,
           loop: false,
           autoplay: false,
         }),
@@ -1125,16 +1121,12 @@ let popupShown = false;
 
 function animate() {
   window.requestAnimationFrame(animate);
-
   background.draw();
-
   doors.forEach((door) => {
-    
     door.draw();
   });
 
   player.update(); 
-
   player.updateHitbox()
 
   isNearComputer = false;

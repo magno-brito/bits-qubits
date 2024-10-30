@@ -1,20 +1,24 @@
 <style>
   .popup-content {
-    background: #8c52ff;
+    background: rgb(207, 171, 141);
     padding: 0;
     width: 400px;
+    height: 500px; /* Altura fixa para todas as popups */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 20px; /* Bordas arredondadas */
+    border-radius: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     border: 2px solid #a2a9af;
-    font-family: 'Arial', sans-serif, 10;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column; /* Distribui o conteúdo verticalmente */
+    overflow: hidden; 
   }
 
   .popup-header {
-    background-color: #320094;
+    background-color: rgb(238, 136, 52);
     padding: 10px;
     border-bottom: 2px solid #a2a9af;
     border-top-left-radius: 20px;  /* Ajuste das bordas do cabeçalho */
@@ -47,6 +51,8 @@
     padding: 15px;
     text-align: justify;
     background-color: #ffffff;
+    flex: 1; /* Expande a área do corpo da popup */
+    overflow-y: auto; /* Scrollbar se necessário */
   }
 
   .popup-body p {
@@ -57,7 +63,7 @@
   .popup-footer {
     padding: 10px;
     text-align: center;
-    background-color: #320094;
+    background-color: rgb(238, 136, 52);
     border-top: 2px solid #a2a9af;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -75,7 +81,7 @@
   }
 
   .popup-footer button:hover {
-    background-color: #320094;
+    background-color: rgb(238, 136, 52);
   }
 </style>
 
@@ -84,7 +90,7 @@
         <h2>Quantum Bit (Qubit)</h2>
         <div class="stats">N°5</div>
     </div>
-    <img src="/img/popup/esfera_bloch.png" alt="Imagem da porta lógica AND">
+    <img src="/img/popup/qubit.png" alt="Imagem da porta lógica AND" height="150px">
     <div class="popup-body">
         <p>
 

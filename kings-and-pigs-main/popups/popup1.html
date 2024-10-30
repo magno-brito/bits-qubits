@@ -3,14 +3,18 @@
     background: radial-gradient(circle at -1% 57.5%, rgb(19, 170, 82) 0%, rgb(0, 102, 43) 90%);
     padding: 0;
     width: 400px;
+    height: 500px; /* Altura fixa para todas as popups */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 20px; /* Bordas arredondadas */
+    border-radius: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     border: 2px solid #a2a9af;
     font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column; /* Distribui o conteúdo verticalmente */
+    overflow: hidden; 
   }
 
   .popup-header {
@@ -49,6 +53,8 @@
     padding: 15px;
     text-align: justify;
     background-color: #ffffff;
+    flex: 1; /* Expande a área do corpo da popup */
+    overflow-y: auto; /* Scrollbar se necessário */
   }
 
   .popup-body p {
