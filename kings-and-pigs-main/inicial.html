@@ -6,73 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bits & Qubits Adventures</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0; /* Remove margens do body */
-            padding: 0; /* Remove preenchimentos do body */
-        }
-
-        .navbar {
-            background: radial-gradient(circle at 52.1% -29.6%, rgb(144, 17, 105) 0%, rgb(51, 0, 131) 100.2%);
-            padding: 10px 15px; /* Ajuste o padding da navbar */
-        }
-
-        .navbar-nav .nav-link {
-            color: white !important;
-            font-weight: bold;
-            font-size: 14pt;
-        }
-
-        .navbar-brand {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #f85a59;
-        }
-
-        .about-section {
-            background-color: #f7f7f7;
-        }
-
-        .about-section h2 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color:#071ab1
-        }
-
-        .about-section p {
-            color: rgb(116, 8, 116);
-            line-height: 1.6;
-        }
-
-        #blochSphereCanvas {
-            width: 100%; /* Ocupará a largura do container */
-            max-width: 400px; /* Limita a largura máxima */
-            height: auto; /* Altura automática */
-        }
-
-        .btn-purple {
-            background-color: purple; /* Cor de fundo roxa */
-            color: white; /* Cor do texto branca */
-            font-size: 1rem; /* Tamanho da fonte */
-            font-weight: bold; /* Negrito */
-            border: none; /* Remove a borda padrão */
-            padding: 10px 20px; /* Preenchimento interno */
-            border-radius: 5px; /* Bordas arredondadas */
-            transition: background-color 0.3s; /* Efeito de transição suave */
-        }
-
-        .btn-purple:hover {
-            background-color: #3d4ecf; /* Cor ao passar o mouse */
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="#">
-            <img src="/img/logo.png" alt="Logo" style="height: 150px;">
+            <img src="/img/logo.png" alt="Logo" style="height: 100px;">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -82,7 +23,7 @@
                 <li class="nav-item"><a class="nav-link" href="#">Início</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Sobre o Jogo</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Bits</a></li>
-                <li class="nav-item"><a class="nav-link" href="/js/esfera_bloch.html">Qubits</a></li>
+                <li class="nav-item"><a class="nav-link" href="esfera_bloch.html">Qubits</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Computadores Quânticos</a></li>
             </ul>
         </div>

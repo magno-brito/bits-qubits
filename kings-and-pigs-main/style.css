@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0; /* Remove margens do body */
+    padding: 0; /* Remove preenchimentos do body */
+}
+
+.navbar {
+    background: radial-gradient(circle at 52.1% -29.6%, rgb(144, 17, 105) 0%, rgb(51, 0, 131) 100.2%);
+    padding: 10px 15px; /* Ajuste o padding da navbar */
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+    font-weight: bold;
+    font-size: 14pt;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #f85a59;
+}
+
+.about-section {
+    background-color: #f7f7f7;
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color:#071ab1
+}
+
+.about-section p {
+    color: rgb(116, 8, 116);
+    line-height: 1.6;
+}
+
+#blochSphereCanvas {
+    width: 100%; /* Ocupará a largura do container */
+    max-width: 400px; /* Limita a largura máxima */
+    height: auto; /* Altura automática */
+}
+
+.btn-purple {
+    background-color: purple; /* Cor de fundo roxa */
+    color: white; /* Cor do texto branca */
+    font-size: 1rem; /* Tamanho da fonte */
+    font-weight: bold; /* Negrito */
+    border: none; /* Remove a borda padrão */
+    padding: 10px 20px; /* Preenchimento interno */
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: background-color 0.3s; /* Efeito de transição suave */
+}
+
+.btn-purple:hover {
+    background-color: #3d4ecf; /* Cor ao passar o mouse */
+}
