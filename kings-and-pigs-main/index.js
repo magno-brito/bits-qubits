@@ -73,7 +73,8 @@ const player = new Player({
   },
 })
 
-let level = 1
+let level = 11
+
 let levels = {
   1: {
     init: () => {
@@ -1097,6 +1098,865 @@ let levels = {
 
     },
   },
+
+  11: {
+    init: () => {
+      parsedCollisions = collisionsLevel11.parse2D()
+      collisionBlocks = parsedCollisions.createObjectsFrom2D()
+      player.collisionBlocks = collisionBlocks
+
+      player.position.x = 200
+      player.position.y = 200
+      if (player.currentAnimation) player.currentAnimation.isActive = false
+
+      background = new Sprite({
+        position: {
+          x: (canvas.width - backgroundImageWidth) / 2,  
+          y: (canvas.height - backgroundImageHeight) / 2,  
+ 
+        },
+        imageSrc: './img/pagina/11.png',
+      })
+
+      doors = [
+        new Sprite({
+          position: {
+            x: 60,
+            y: 430,
+          },
+          imageSrc: 'img/doors/doorTest2.png',
+          frameRate: 6,
+          frameBuffer: 6,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+      computers = [
+        new Sprite({
+          position: {
+            x: 350,
+            y: 305,
+          },
+          imageSrc: './img/pagina/computer1.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+
+      fires = [
+        new Sprite({
+          position: {
+            x: 800,
+            y: 220,
+          },
+          imageSrc: './img/pagina/fire6.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: false,
+          limit_left: 620,
+          limit_right: 320,
+          direction: 1
+        }),
+
+        new Sprite({
+          position: {
+            x: 580,
+            y: 220,
+          },
+          imageSrc: './img/pagina/fire6.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 100,
+          limit_right: 400,
+          direction: 1,
+           eixo: "y"
+        }),
+
+        new Sprite({
+          position: {
+            x: 200,
+            y: 420,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+
+        new Sprite({
+          position: {
+            x: 470,
+            y: 280,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+      ]
+
+      apagador = [
+        new Sprite({
+          position: {
+            x: 850,
+            y: 425,
+          },
+          imageSrc: './img/pagina/apagador.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+         
+        }),
+      ]
+
+
+    },
+  },
+  12: {
+    init: () => {
+      parsedCollisions = collisionsLevel12.parse2D()
+      collisionBlocks = parsedCollisions.createObjectsFrom2D()
+      player.collisionBlocks = collisionBlocks
+      player.position.x = 850
+      player.position.y = 530
+      if (player.currentAnimation) player.currentAnimation.isActive = false
+
+      background = new Sprite({
+        position: {
+          x: (canvas.width - backgroundImageWidth) / 2,  
+          y: (canvas.height - backgroundImageHeight) / 2,  
+ 
+        },
+        imageSrc: './img/pagina/12.png',
+      })
+
+      doors = [
+        new Sprite({
+          position: {
+            x: 60,
+            y: 430,
+          },
+          imageSrc: 'img/doors/doorTest2.png',
+          frameRate: 6,
+          frameBuffer: 6,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+      computers = [
+        new Sprite({
+          position: {
+            x: 50,
+            y: 50,
+          },
+          imageSrc: './img/pagina/computer1.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+
+      fires = [
+        new Sprite({
+          position: {
+            x: 200,
+            y: 420,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+
+        new Sprite({
+          position: {
+            x: 880,
+            y: 290,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+        new Sprite({
+          position: {
+            x: 80,
+            y: 290,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+
+        new Sprite({
+          position: {
+            x: 50,
+            y: 170,
+          },
+          imageSrc: './img/pagina/fire6.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 50,
+          limit_right: 900,
+          direction: 1
+        }),
+
+        new Sprite({
+          position: {
+            x: 150,
+            y: 300,
+          },
+          imageSrc: './img/pagina/fire6.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 150,
+          limit_right: 850,
+          direction: 1
+        }),
+
+
+      ]
+
+
+    },
+  },
+
+  13: {
+    init: () => {
+      parsedCollisions = collisionsLevel13.parse2D()
+      collisionBlocks = parsedCollisions.createObjectsFrom2D()
+      player.collisionBlocks = collisionBlocks
+      player.position.x = 850
+      player.position.y = 530
+      if (player.currentAnimation) player.currentAnimation.isActive = false
+
+      background = new Sprite({
+        position: {
+          x: (canvas.width - backgroundImageWidth) / 2,  
+          y: (canvas.height - backgroundImageHeight) / 2,  
+ 
+        },
+        imageSrc: './img/pagina/13.png',
+      })
+
+      doors = [
+        new Sprite({
+          position: {
+            x: 60,
+            y: 430,
+          },
+          imageSrc: 'img/doors/doorTest2.png',
+          frameRate: 6,
+          frameBuffer: 6,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+      computers = [
+        new Sprite({
+          position: {
+            x: 50,
+            y: 50,
+          },
+          imageSrc: './img/pagina/computer1.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+
+      fires = [
+        new Sprite({
+          position: {
+            x: 200,
+            y: 420,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+
+        new Sprite({
+          position: {
+            x: 880,
+            y: 290,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+        new Sprite({
+          position: {
+            x: 80,
+            y: 290,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+
+        new Sprite({
+          position: {
+            x: 50,
+            y: 170,
+          },
+          imageSrc: './img/pagina/fire6.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 50,
+          limit_right: 900,
+          direction: 1
+        }),
+
+        new Sprite({
+          position: {
+            x: 150,
+            y: 300,
+          },
+          imageSrc: './img/pagina/fire6.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 150,
+          limit_right: 850,
+          direction: 1
+        }),
+
+
+      ]
+
+
+    },
+  },
+  14: {
+    init: () => {
+      parsedCollisions = collisionsLevel14.parse2D()
+      collisionBlocks = parsedCollisions.createObjectsFrom2D()
+      player.collisionBlocks = collisionBlocks
+      player.position.x = 850
+      player.position.y = 530
+      if (player.currentAnimation) player.currentAnimation.isActive = false
+
+      background = new Sprite({
+        position: {
+          x: (canvas.width - backgroundImageWidth) / 2,  
+          y: (canvas.height - backgroundImageHeight) / 2,  
+ 
+        },
+        imageSrc: './img/pagina/14.png',
+      })
+
+      doors = [
+        new Sprite({
+          position: {
+            x: 60,
+            y: 430,
+          },
+          imageSrc: 'img/doors/doorTest2.png',
+          frameRate: 6,
+          frameBuffer: 6,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+      computers = [
+        new Sprite({
+          position: {
+            x: 50,
+            y: 50,
+          },
+          imageSrc: './img/pagina/computer1.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+
+      fires = [
+        new Sprite({
+          position: {
+            x: 200,
+            y: 420,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+
+        new Sprite({
+          position: {
+            x: 880,
+            y: 290,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+        new Sprite({
+          position: {
+            x: 80,
+            y: 290,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+
+        new Sprite({
+          position: {
+            x: 50,
+            y: 170,
+          },
+          imageSrc: './img/pagina/fire6.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 50,
+          limit_right: 900,
+          direction: 1
+        }),
+
+        new Sprite({
+          position: {
+            x: 150,
+            y: 300,
+          },
+          imageSrc: './img/pagina/fire6.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 150,
+          limit_right: 850,
+          direction: 1
+        }),
+
+
+      ]
+
+
+    },
+  },
+  15: {
+    init: () => {
+      parsedCollisions = collisionsLevel15.parse2D()
+      collisionBlocks = parsedCollisions.createObjectsFrom2D()
+      player.collisionBlocks = collisionBlocks
+      player.position.x = 850
+      player.position.y = 530
+      if (player.currentAnimation) player.currentAnimation.isActive = false
+
+      background = new Sprite({
+        position: {
+          x: (canvas.width - backgroundImageWidth) / 2,  
+          y: (canvas.height - backgroundImageHeight) / 2,  
+ 
+        },
+        imageSrc: './img/pagina/15.png',
+      })
+
+      doors = [
+        new Sprite({
+          position: {
+            x: 60,
+            y: 430,
+          },
+          imageSrc: 'img/doors/doorTest2.png',
+          frameRate: 6,
+          frameBuffer: 6,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+      computers = [
+        new Sprite({
+          position: {
+            x: 50,
+            y: 50,
+          },
+          imageSrc: './img/pagina/computer1.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+
+      fires = [
+        new Sprite({
+          position: {
+            x: 200,
+            y: 420,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+
+        new Sprite({
+          position: {
+            x: 880,
+            y: 290,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+        new Sprite({
+          position: {
+            x: 80,
+            y: 290,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+
+        new Sprite({
+          position: {
+            x: 50,
+            y: 170,
+          },
+          imageSrc: './img/pagina/fire6.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 50,
+          limit_right: 900,
+          direction: 1
+        }),
+
+        new Sprite({
+          position: {
+            x: 150,
+            y: 300,
+          },
+          imageSrc: './img/pagina/fire6.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 150,
+          limit_right: 850,
+          direction: 1
+        }),
+
+
+      ]
+
+
+    },
+  },
+  16: {
+    init: () => {
+      parsedCollisions = collisionsLevel16.parse2D()
+      collisionBlocks = parsedCollisions.createObjectsFrom2D()
+      player.collisionBlocks = collisionBlocks
+      player.position.x = 850
+      player.position.y = 530
+      if (player.currentAnimation) player.currentAnimation.isActive = false
+
+      background = new Sprite({
+        position: {
+          x: (canvas.width - backgroundImageWidth) / 2,  
+          y: (canvas.height - backgroundImageHeight) / 2,  
+ 
+        },
+        imageSrc: './img/pagina/16.png',
+      })
+
+      doors = [
+        new Sprite({
+          position: {
+            x: 60,
+            y: 430,
+          },
+          imageSrc: 'img/doors/doorTest2.png',
+          frameRate: 6,
+          frameBuffer: 6,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+      computers = [
+        new Sprite({
+          position: {
+            x: 50,
+            y: 50,
+          },
+          imageSrc: './img/pagina/computer1.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+
+      fires = [
+        new Sprite({
+          position: {
+            x: 200,
+            y: 420,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+
+        new Sprite({
+          position: {
+            x: 880,
+            y: 290,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+        new Sprite({
+          position: {
+            x: 80,
+            y: 290,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+
+        new Sprite({
+          position: {
+            x: 50,
+            y: 170,
+          },
+          imageSrc: './img/pagina/fire6.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 50,
+          limit_right: 900,
+          direction: 1
+        }),
+
+        new Sprite({
+          position: {
+            x: 150,
+            y: 300,
+          },
+          imageSrc: './img/pagina/fire6.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 150,
+          limit_right: 850,
+          direction: 1
+        }),
+
+
+      ]
+
+
+    },
+  },
+  17: {
+    init: () => {
+      parsedCollisions = collisionsLevel17.parse2D()
+      collisionBlocks = parsedCollisions.createObjectsFrom2D()
+      player.collisionBlocks = collisionBlocks
+      player.position.x = 850
+      player.position.y = 530
+      if (player.currentAnimation) player.currentAnimation.isActive = false
+
+      background = new Sprite({
+        position: {
+          x: (canvas.width - backgroundImageWidth) / 2,  
+          y: (canvas.height - backgroundImageHeight) / 2,  
+ 
+        },
+        imageSrc: './img/pagina/17.png',
+      })
+
+      doors = [
+        new Sprite({
+          position: {
+            x: 60,
+            y: 430,
+          },
+          imageSrc: 'img/doors/doorTest2.png',
+          frameRate: 6,
+          frameBuffer: 6,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+      computers = [
+        new Sprite({
+          position: {
+            x: 50,
+            y: 50,
+          },
+          imageSrc: './img/pagina/computer1.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+
+      fires = [
+        new Sprite({
+          position: {
+            x: 200,
+            y: 420,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+
+        new Sprite({
+          position: {
+            x: 880,
+            y: 290,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+        new Sprite({
+          position: {
+            x: 80,
+            y: 290,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+
+        new Sprite({
+          position: {
+            x: 50,
+            y: 170,
+          },
+          imageSrc: './img/pagina/fire6.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 50,
+          limit_right: 900,
+          direction: 1
+        }),
+
+        new Sprite({
+          position: {
+            x: 150,
+            y: 300,
+          },
+          imageSrc: './img/pagina/fire6.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 150,
+          limit_right: 850,
+          direction: 1
+        }),
+
+
+      ]
+
+
+    },
+  },
 }
 
 const keys = {
@@ -1143,9 +2003,20 @@ function animate() {
     popupShown = false;
   }
 
+  apagador.forEach((apagador) => {
+    apagador.draw()
+  })
  
   fires.forEach((fire) => {
-    if (fire.move === true) {
+    if(fire.eixo == "y" && fire.move == true){
+      fire.position.y += fireSpeed * fire.direction;
+      if (fire.position.y > fire.limit_right) {
+        fire.direction = -1;  
+      } else if (fire.position.y < fire.limit_left) {
+        fire.direction = 1;  
+      }
+    }
+    if (fire.eixo == "x" && fire.move === true) {
       fire.position.x += fireSpeed * fire.direction;
       if (fire.position.x > fire.limit_right) {
         fire.direction = -1;  

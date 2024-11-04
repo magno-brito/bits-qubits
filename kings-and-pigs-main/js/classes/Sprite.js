@@ -10,6 +10,7 @@ class Sprite {
     move = true,
     limit_left = 0,
     limit_right = 0,
+    eixo = 'x',
     direction = 1
     
     
@@ -34,6 +35,7 @@ class Sprite {
     this.limit_left = limit_left
     this.limit_right = limit_right
     this.direction = 1
+    this.eixo = eixo
     this.currentAnimation
 
     if (this.animations) {

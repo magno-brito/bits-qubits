@@ -13,6 +13,7 @@ window.addEventListener('keydown', (event) => {
       for (let i = 0; i < doors.length; i++) {
         const door = doors[i];
 
+        
         if (
           player.hitbox.position.x + player.hitbox.width <=
             door.position.x + door.width + MARGIN_DOOR_COLLISION &&
