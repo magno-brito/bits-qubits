@@ -1,4 +1,5 @@
-let isNearComputer = false;
+let isNearComputer = false
+let ativadorFire = true
 const MARGIN_DOOR_COLLISION = 10; // Ajuste a margem conforme necessário
 
 window.addEventListener('keydown', (event) => {
@@ -6,6 +7,17 @@ window.addEventListener('keydown', (event) => {
 
   if (event.key === 'Enter' && isNearComputer) {
     showPopup('popup', level);
+  }
+
+  if (event.key === 'Enter' && isNearApagador) {
+    ativadorFire = false
+    fires.forEach(fire => {
+      // Remove a área de colisão dos fires
+      fire.position.x = -1000; // Coloca fora da tela
+      fire.position.y = -1000; // Coloca fora da tela
+      fire.width = 0;
+      fire.height = 0;
+    })
   }
 
   switch (event.key) {

@@ -2003,29 +2003,35 @@ function animate() {
     popupShown = false;
   }
 
+  isNearApagador = false;
   apagador.forEach((apagador) => {
-    apagador.draw()
-  })
- 
-  fires.forEach((fire) => {
-    if(fire.eixo == "y" && fire.move == true){
-      fire.position.y += fireSpeed * fire.direction;
-      if (fire.position.y > fire.limit_right) {
-        fire.direction = -1;  
-      } else if (fire.position.y < fire.limit_left) {
-        fire.direction = 1;  
-      }
+    apagador.draw();
+    if (isColliding(player, apagador)) {
+      isNearApagador = true; // Define isNearApagador como true ao colidir com apagador
     }
-    if (fire.eixo == "x" && fire.move === true) {
-      fire.position.x += fireSpeed * fire.direction;
-      if (fire.position.x > fire.limit_right) {
-        fire.direction = -1;  
-      } else if (fire.position.x < fire.limit_left) {
-        fire.direction = 1;  
-      }
-    }
-    fire.draw();  
   });
+ 
+  if (ativadorFire) { // Desenha os fires apenas se estiverem ativos
+    fires.forEach((fire) => {
+      if (fire.eixo == "y" && fire.move === true) {
+        fire.position.y += fireSpeed * fire.direction;
+        if (fire.position.y > fire.limit_right) {
+          fire.direction = -1;  
+        } else if (fire.position.y < fire.limit_left) {
+          fire.direction = 1;  
+        }
+      }
+      if (fire.eixo == "x" && fire.move === true) {
+        fire.position.x += fireSpeed * fire.direction;
+        if (fire.position.x > fire.limit_right) {
+          fire.direction = -1;  
+        } else if (fire.position.x < fire.limit_left) {
+          fire.direction = 1;  
+        }
+      }
+      fire.draw();
+    });
+  }
   
   
   checkPlayerFireCollision();
