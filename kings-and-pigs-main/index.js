@@ -73,7 +73,7 @@ const player = new Player({
   },
 })
 
-let level = 14
+let level = 15
 
 let levels = {
   1: {
@@ -155,6 +155,8 @@ let levels = {
       lightnings = [
 
       ]
+
+      movableBlocks = []
     },
   },
   2: {
@@ -2067,28 +2069,28 @@ let levels = {
 
       ]
      
+      
 
 
     },
   },
   15: {
     init: () => {
-      parsedCollisions = collisionsLevel15.parse2D()
-      collisionBlocks = parsedCollisions.createObjectsFrom2D()
-      player.collisionBlocks = collisionBlocks
-      player.position.x = 850
-      player.position.y = 530
-      if (player.currentAnimation) player.currentAnimation.isActive = false
-
+      parsedCollisions = collisionsLevel15.parse2D();
+      collisionBlocks = parsedCollisions.createObjectsFrom2D();
+      player.collisionBlocks = collisionBlocks;
+      player.position.x = 850;
+      player.position.y = 530;
+      if (player.currentAnimation) player.currentAnimation.isActive = false;
+  
       background = new Sprite({
         position: {
           x: (canvas.width - backgroundImageWidth) / 2,  
           y: (canvas.height - backgroundImageHeight) / 2,  
- 
         },
         imageSrc: './img/pagina/15.png',
-      })
-
+      });
+  
       doors = [
         new Sprite({
           position: {
@@ -2101,7 +2103,8 @@ let levels = {
           loop: false,
           autoplay: false,
         }),
-      ]
+      ];
+  
       computers = [
         new Sprite({
           position: {
@@ -2114,74 +2117,73 @@ let levels = {
           loop: false,
           autoplay: false,
         }),
-      ]
-
+      ];
+  
       energies = [
-        new Sprite({
-          position: {
-            x: 800,
-            y: 220,
-          },
-          imageSrc: './img/pagina/fire6.png',
-          frameRate: 7,
-          frameBuffer: 8,
-          loop: true,
-          autoplay: true,
-          move: false,
-          limit_left: 620,
-          limit_right: 320,
-          direction: 1
-        }),
-
-        new Sprite({
-          position: {
-            x: 580,
-            y: 220,
-          },
-          imageSrc: './img/pagina/fire6.png',
-          frameRate: 7,
-          frameBuffer: 8,
-          loop: true,
-          autoplay: true,
-          move: true,
-          limit_left: 50,
-          limit_right: 400,
-          direction: 1,
-           eixo: "y"
-        }),
-      ]
-
+        // new Sprite({
+        //   position: {
+        //     x: 800,
+        //     y: 220,
+        //   },
+        //   imageSrc: './img/pagina/fire6.png',
+        //   frameRate: 7,
+        //   frameBuffer: 8,
+        //   loop: true,
+        //   autoplay: true,
+        //   move: false,
+        //   limit_left: 620,
+        //   limit_right: 320,
+        //   direction: 1
+        // }),
+  
+        // new Sprite({
+        //   position: {
+        //     x: 580,
+        //     y: 220,
+        //   },
+        //   imageSrc: './img/pagina/fire6.png',
+        //   frameRate: 7,
+        //   frameBuffer: 8,
+        //   loop: true,
+        //   autoplay: true,
+        //   move: true,
+        //   limit_left: 50,
+        //   limit_right: 400,
+        //   direction: 1,
+        //   eixo: "y"
+        // }),
+      ];
+  
       fires = [
-       
-        new Sprite({
-          position: {
-            x: 200,
-            y: 420,
-          },
-          imageSrc: './img/pagina/fire3.png',
-          frameRate: 8,
-          frameBuffer: 9,
-          loop: true,
-          autoplay: true,
-          move: false,
-          opacity: 1
-        }),
-
-        new Sprite({
-          position: {
-            x: 470,
-            y: 280,
-          },
-          imageSrc: './img/pagina/fire3.png',
-          frameRate: 8,
-          frameBuffer: 9,
-          loop: true,
-          autoplay: true,
-          move: false,
-          opacity: 1
-        }),
-      ]
-
+        // new Sprite({
+        //   position: {
+        //     x: 200,
+        //     y: 420,
+        //   },
+        //   imageSrc: './img/pagina/fire3.png',
+        //   frameRate: 8,
+        //   frameBuffer: 9,
+        //   loop: true,
+        //   autoplay: true,
+        //   move: false,
+        //   opacity: 1
+        // }),
+  
+        // new Sprite({
+        //   position: {
+        //     x: 470,
+        //     y: 280,
+        //   },
+        //   imageSrc: './img/pagina/fire3.png',
+        //   frameRate: 8,
+        //   frameBuffer: 9,
+        //   loop: true,
+        //   autoplay: true,
+        //   move: false,
+        //   opacity: 1
+        // }),
+      ];
+  
       apagador = [
         new Sprite({
           position: {
@@ -2193,13 +2195,26 @@ let levels = {
           frameBuffer: 1,
           loop: false,
           autoplay: false,
-         
         }),
-      ]
+      ],
 
+      lightnings =[]
+  
+      movableBlocks = [];
+      collisionsLevel15.forEach((symbol, index) => {
+        const x = (index % 16) * 64;
+        const y = Math.floor(index / 16) * 64;
+      
+        if (symbol === 293) {
+          movableBlocks.push(new CollisionBlock({ position: { x, y }, movable: true }));
+        }
+      });
 
+    // Agora os blocos móveis estão prontos
+    player.movableBlocks = movableBlocks;
     },
   },
+  
   16: {
     init: () => {
       parsedCollisions = collisionsLevel16.parse2D()
@@ -2551,6 +2566,47 @@ function animate() {
     lightning.draw()
   })
   
+  //-----------------------------------------------------
+  movableBlocks.forEach(block => {
+    if (block.movable) {
+      block.update();  // Atualiza a posição do bloco
+  
+      // Verifique se o jogador está colidindo com o bloco
+      if (isColliding(player, block, 10)) {
+        // Move o jogador junto com o bloco na direção X
+        player.position.x += block.direction * 2;  // Ajuste para seguir o movimento do bloco
+  
+        // Se o jogador está caindo ou parado, ajustamos a posição Y para ele ficar em cima do bloco
+        if (player.velocity.y > 0) {
+          player.velocity.y = 0;  // Impede que o jogador continue caindo
+  
+          // Ajusta a posição Y do jogador para ele ficar em cima do bloco
+          player.position.y = block.position.y - player.height;
+  
+          // Marque o jogador como "em cima" do bloco
+          player.isOnGround = true;
+        } else if (player.velocity.y < 0) {
+          // Se o jogador estiver saltando, ele ainda pode ir para cima sem interferir
+          player.position.y = block.position.y - player.height;
+          player.isOnGround = false; // Jogador não está em cima de algo se ele está saltando
+        }
+      } else {
+        // Caso o jogador não esteja mais em cima do bloco, a gravidade deve voltar
+        player.isOnGround = false;
+      }
+  
+      block.draw();  // Desenha o bloco
+    }
+  });
+  
+  
+  
+
+
+
+
+  
+  //------------------------------------------
   
   checkPlayerFireCollision();
   checkPlayerEnergyCollision();
