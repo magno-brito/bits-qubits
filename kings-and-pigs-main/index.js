@@ -73,7 +73,7 @@ const player = new Player({
   },
 })
 
-let level = 6
+let level = 14
 
 let levels = {
   1: {
@@ -833,10 +833,64 @@ let levels = {
 
         new Sprite({
           position: {
+            x: 100,
+            y: 420,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+
+        new Sprite({
+          position: {
+            x: 120,
+            y: 420,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+        new Sprite({
+          position: {
+            x: 140,
+            y: 420,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+        new Sprite({
+          position: {
+            x: 160,
+            y: 420,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+
+       
+      ]
+
+      energies = [
+        new Sprite({
+          position: {
             x: 50,
             y: 230,
           },
-          imageSrc: './img/pagina/fire5.png',
+          imageSrc: './img/pagina/fire6.png',
           frameRate: 7,
           frameBuffer: 8,
           loop: true,
@@ -846,7 +900,40 @@ let levels = {
           limit_right: 260,
           direction: 1
         }),
+
+        new Sprite({
+          position: {
+            x: 50,
+            y: 330,
+          },
+          imageSrc: './img/pagina/fire6.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 50,
+          limit_right: 260,
+          direction: 1
+        }),
+
       ]
+      apagador = [
+        new Sprite({
+          position: {
+            x: 50,
+            y: 420,
+          },
+          imageSrc: './img/pagina/apagador.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+         
+        }),
+      ]
+
+      lightnings = []
 
 
     },
@@ -896,6 +983,108 @@ let levels = {
         }),
       ]
 
+      energies = [
+        new Sprite({
+          position: {
+            x: 80,
+            y: 50,
+          },
+          imageSrc: './img/pagina/fire4.png',
+          frameRate: 6,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 80,
+          limit_right: 350,
+          direction: 1
+        }),
+
+        new Sprite({
+          position: {
+            x: 80,
+            y: 115,
+          },
+          imageSrc: './img/pagina/fire5.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 80,
+          limit_right: 350,
+          direction: 1
+        }),
+
+        new Sprite({
+          position: {
+            x: 80,
+            y: 180,
+          },
+          imageSrc: './img/pagina/fire4.png',
+          frameRate: 6,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 80,
+          limit_right: 350,
+          direction: 1
+        }),
+
+        //---------------------
+
+        new Sprite({
+          position: {
+            x: 80,
+            y: 50,
+          },
+          imageSrc: './img/pagina/fire4.png',
+          frameRate: 6,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 500,
+          limit_right: 850,
+          direction: 1
+        }),
+
+        new Sprite({
+          position: {
+            x: 80,
+            y: 115,
+          },
+          imageSrc: './img/pagina/fire5.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 500,
+          limit_right: 850,
+          direction: 1
+        }),
+
+        new Sprite({
+          position: {
+            x: 80,
+            y: 180,
+          },
+          imageSrc: './img/pagina/fire4.png',
+          frameRate: 6,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 500,
+          limit_right: 850,
+          direction: 1
+        }),
+
+        
+      ]
+
       fires = [
         new Sprite({
           position: {
@@ -925,53 +1114,35 @@ let levels = {
 
         new Sprite({
           position: {
-            x: 80,
-            y: 50,
+            x: 100,
+            y: 420,
           },
-          imageSrc: './img/pagina/fire4.png',
-          frameRate: 6,
-          frameBuffer: 8,
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
           loop: true,
           autoplay: true,
-          move: true,
-          limit_left: 80,
-          limit_right: 900,
-          direction: 1
-        }),
-
-        new Sprite({
-          position: {
-            x: 80,
-            y: 115,
-          },
-          imageSrc: './img/pagina/fire5.png',
-          frameRate: 7,
-          frameBuffer: 8,
-          loop: true,
-          autoplay: true,
-          move: true,
-          limit_left: 80,
-          limit_right: 900,
-          direction: 1
-        }),
-
-        new Sprite({
-          position: {
-            x: 80,
-            y: 180,
-          },
-          imageSrc: './img/pagina/fire4.png',
-          frameRate: 6,
-          frameBuffer: 8,
-          loop: true,
-          autoplay: true,
-          move: true,
-          limit_left: 80,
-          limit_right: 900,
-          direction: 1
+          move: false
         }),
 
       ]
+
+      apagador = [
+        new Sprite({
+          position: {
+            x: 400,
+            y: 420,
+          },
+          imageSrc: './img/pagina/apagador.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+         
+        }),
+      ]
+
+      lightnings = []
 
 
     },
@@ -998,7 +1169,7 @@ let levels = {
         new Sprite({
           position: {
             x: 480,
-            y: 165,
+            y: 175,
           },
           imageSrc: 'img/doors/doorTest2.png',
           frameRate: 6,
@@ -1037,9 +1208,9 @@ let levels = {
         new Sprite({
           position: {
             x: 80,
-            y: 290,
+            y: 320,
           },
-          imageSrc: './img/pagina/fire3.png',
+          imageSrc: './img/pagina/fire10.png',
           frameRate: 8,
           frameBuffer: 9,
           loop: true,
@@ -1049,35 +1220,47 @@ let levels = {
 
         new Sprite({
           position: {
-            x: 50,
-            y: 150,
+            x: 80,
+            y: 320,
           },
-          imageSrc: './img/pagina/fire4.png',
-          frameRate: 6,
-          frameBuffer: 8,
+          imageSrc: './img/pagina/fire10.png',
+          frameRate: 8,
+          frameBuffer: 9,
           loop: true,
           autoplay: true,
-          move: true,
-          limit_left: 50,
-          limit_right: 400,
-          direction: 1
+          move: false
         }),
 
         new Sprite({
           position: {
-            x: 900,
-            y: 150,
+            x: 420,
+            y: 195,
           },
-          imageSrc: './img/pagina/fire5.png',
-          frameRate: 7,
-          frameBuffer: 8,
+          imageSrc: './img/pagina/fire10.png',
+          frameRate: 8,
+          frameBuffer: 9,
           loop: true,
           autoplay: true,
-          move: true,
-          limit_left: 580,
-          limit_right: 900,
-          direction: 1
+          move: false
         }),
+
+        new Sprite({
+          position: {
+            x: 530,
+            y: 195,
+          },
+          imageSrc: './img/pagina/fire10.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+
+       
+      ]
+
+      energies = [
 
         new Sprite({
           position: {
@@ -1095,6 +1278,23 @@ let levels = {
           direction: 1
         }),
       ]
+
+      apagador = [
+        new Sprite({
+          position: {
+            x: 900,
+            y: 110,
+          },
+          imageSrc: './img/pagina/apagador.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+         
+        }),
+      ]
+
+      lightnings = []
     },
   },
   10: {
@@ -1170,6 +1370,20 @@ let levels = {
         }),
         new Sprite({
           position: {
+            x: 780,
+            y: 290,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+
+
+        new Sprite({
+          position: {
             x: 80,
             y: 290,
           },
@@ -1183,8 +1397,25 @@ let levels = {
 
         new Sprite({
           position: {
-            x: 50,
-            y: 170,
+            x: 180,
+            y: 290,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
+      ]
+
+      
+      energies = [
+
+        new Sprite({
+          position: {
+            x: 300,
+            y: 120,
           },
           imageSrc: './img/pagina/fire6.png',
           frameRate: 7,
@@ -1192,29 +1423,57 @@ let levels = {
           loop: true,
           autoplay: true,
           move: true,
-          limit_left: 50,
-          limit_right: 900,
+          limit_left: 300,
+          limit_right: 800,
           direction: 1
         }),
 
         new Sprite({
           position: {
-            x: 150,
-            y: 300,
+            x: 120,
+            y: 50,
           },
-          imageSrc: './img/pagina/fire6.png',
+          imageSrc: './img/pagina/fire5.png',
           frameRate: 7,
           frameBuffer: 8,
           loop: true,
           autoplay: true,
           move: true,
-          limit_left: 150,
-          limit_right: 850,
+          limit_left: 120,
+          limit_right: 800,
           direction: 1
         }),
 
-
+        new Sprite({
+          position: {
+            x: 430,
+            y: 290,
+          },
+          imageSrc: './img/pagina/fire9.png',
+          frameRate: 4,
+          frameBuffer: 4,
+          loop: true,
+          autoplay: true,
+          move: false
+        }),
       ]
+
+      apagador = [
+        new Sprite({
+          position: {
+            x: 900,
+            y: 95,
+          },
+          imageSrc: './img/pagina/apagador.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+         
+        }),
+      ]
+
+      lightnings = []
 
 
     },
@@ -1267,21 +1526,7 @@ let levels = {
       ]
 
       energies = [
-        new Sprite({
-          position: {
-            x: 800,
-            y: 220,
-          },
-          imageSrc: './img/pagina/fire6.png',
-          frameRate: 7,
-          frameBuffer: 8,
-          loop: true,
-          autoplay: true,
-          move: false,
-          limit_left: 620,
-          limit_right: 320,
-          direction: 1
-        }),
+        
 
         new Sprite({
           position: {
@@ -1295,9 +1540,26 @@ let levels = {
           autoplay: true,
           move: true,
           limit_left: 50,
-          limit_right: 400,
+          limit_right: 380,
           direction: 1,
            eixo: "y"
+        }),
+
+        new Sprite({
+          position: {
+            x: 580,
+            y: 220,
+          },
+          imageSrc: './img/pagina/fire6.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 400,
+          limit_right: 900,
+          direction: 1,
+           eixo: "x"
         }),
       ]
 
@@ -1305,7 +1567,7 @@ let levels = {
        
         new Sprite({
           position: {
-            x: 200,
+            x: 170,
             y: 420,
           },
           imageSrc: './img/pagina/fire3.png',
@@ -1321,6 +1583,60 @@ let levels = {
           position: {
             x: 470,
             y: 280,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false,
+          opacity: 1
+        }),
+        new Sprite({
+          position: {
+            x: 370,
+            y: 420,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false,
+          opacity: 1
+        }),
+
+        new Sprite({
+          position: {
+            x: 270,
+            y: 420,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false,
+          opacity: 1
+        }),
+
+        new Sprite({
+          position: {
+            x: 470,
+            y: 420,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false,
+          opacity: 1
+        }),
+        new Sprite({
+          position: {
+            x: 570,
+            y: 420,
           },
           imageSrc: './img/pagina/fire3.png',
           frameRate: 8,
@@ -1346,6 +1662,8 @@ let levels = {
          
         }),
       ]
+
+      lightnings = []
 
 
     },
