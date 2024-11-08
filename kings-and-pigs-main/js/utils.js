@@ -11,14 +11,14 @@ Array.prototype.createObjectsFrom2D = function () {
   const objects = []
   this.forEach((row, y) => {
     row.forEach((symbol, x) => {
-      if (symbol === 292  || symbol === 250) {
+      if (symbol === 292 || symbol === 293) {
         objects.push(
           new CollisionBlock({
             position: {
               x: x * 64,
               y: y * 64,
-
             },
+            movable: symbol === 293,  // Somente os blocos com o valor 293 serão móveis
           })
         )
       }

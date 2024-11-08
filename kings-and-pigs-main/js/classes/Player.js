@@ -93,14 +93,42 @@ class Player extends Sprite {
       }
     }
   
+  drawRoundedRect(x, y, width, height, radius, color) {
+      // Configura o estilo e cria bordas arredondadas
+      c.beginPath();
+      c.moveTo(x + radius, y);
+      c.lineTo(x + width - radius, y);
+      c.quadraticCurveTo(x + width, y, x + width, y + radius);
+      c.lineTo(x + width, y + height - radius);
+      c.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+      c.lineTo(x + radius, y + height);
+      c.quadraticCurveTo(x, y + height, x, y + height - radius);
+      c.lineTo(x, y + radius);
+      c.quadraticCurveTo(x, y, x + radius, y);
+      c.closePath();
+  
+      // Define a cor de preenchimento com um brilho
+      let gradient = c.createLinearGradient(x, y, x, y + height);
+      gradient.addColorStop(0, 'rgba(255, 255, 255, 0.8)'); // Cor do brilho no topo
+      gradient.addColorStop(1, color); // Cor principal
+  
+      c.fillStyle = gradient;
+      c.fill();
+  }
 
+    
   checkForHorizontalCollisions() {
 
     for (let i = 0; i < this.collisionBlocks.length; i++) {
       const collisionBlock = this.collisionBlocks[i]
-      c.fillStyle = 'rgba(255, 0, 0, 0.5)';
-      c.fillRect(collisionBlock.position.x, collisionBlock.position.y, 50, 50);
+      console.log(this.collisionBlocks[i].
+        movable)
+      if (this.collisionBlocks[i].movable){
+        this.drawRoundedRect(collisionBlock.position.x, collisionBlock.position.y, 70, 50, 10, 'rgba(255, 255, 255, 0.5)');
 
+
+      }
+     
       // if a collision exists
       if (
         this.hitbox.position.x <=
