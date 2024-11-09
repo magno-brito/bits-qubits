@@ -21,14 +21,5 @@ class CollisionBlock {
     }
   }
   
-  draw(ctx) {
-    // Verifica se a imagem existe antes de tentar desenhá-la
-    if (this.image) {
-      ctx.drawImage(this.image, this.position.x, this.position.y, 64, 64);
-    } else {
-      console.log("Imagem não carregada corretamente."); // Debug
-       ctx.fillStyle = "blue"; 
-      ctx.fillRect(this.position.x, this.position.y, 64, 64);
-    }
-  }
+  
 }

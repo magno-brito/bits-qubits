@@ -21,7 +21,7 @@ class Player extends Sprite {
 
   update() {
 
-    c.fillStyle = 'rgba(0, 0, 255, 0.5)'
+    // c.fillStyle = 'rgba(0, 0, 255, 0.5)'
     c.fillRect(this.position.x, this.position.y , this.width, this.height)
 
 
@@ -57,12 +57,12 @@ class Player extends Sprite {
       this.switchSprite('runLeft')
       this.velocity.x = -5
       this.lastDirection = 'left'
-     
+
     } else {
       if (this.lastDirection === 'left'){
         this.switchSprite('idleLeft')
         console.log('Indo para left')
-      } 
+      }
       else {
         this.switchSprite('idleRight')
         console.log('Indo para direita')
@@ -81,7 +81,7 @@ class Player extends Sprite {
   }
 
   updateHitbox() {
-  
+
       this.hitbox = {
         position: {
           x: this.position.x,
@@ -92,7 +92,7 @@ class Player extends Sprite {
         height: 50, // Altura do hitbox
       }
     }
-  
+
   drawRoundedRect(x, y, width, height, radius, color) {
       // Configura o estilo e cria bordas arredondadas
       c.beginPath();
@@ -106,17 +106,17 @@ class Player extends Sprite {
       c.lineTo(x, y + radius);
       c.quadraticCurveTo(x, y, x + radius, y);
       c.closePath();
-  
+
       // Define a cor de preenchimento com um brilho
       let gradient = c.createLinearGradient(x, y, x, y + height);
       gradient.addColorStop(0, 'rgba(255, 255, 255, 0.8)'); // Cor do brilho no topo
       gradient.addColorStop(1, color); // Cor principal
-  
+
       c.fillStyle = gradient;
       c.fill();
   }
 
-    
+
   checkForHorizontalCollisions() {
 
     for (let i = 0; i < this.collisionBlocks.length; i++) {
@@ -125,10 +125,8 @@ class Player extends Sprite {
         movable)
       if (this.collisionBlocks[i].movable){
         this.drawRoundedRect(collisionBlock.position.x, collisionBlock.position.y, 70, 50, 10, 'rgba(255, 255, 255, 0.5)');
-
-
       }
-     
+
       // if a collision exists
       if (
         this.hitbox.position.x <=
@@ -163,7 +161,7 @@ class Player extends Sprite {
     this.position.y += this.velocity.y
   }
 
-  
+
 
   checkForVerticalCollisions() {
     for (let i = 0; i < this.collisionBlocks.length; i++) {
