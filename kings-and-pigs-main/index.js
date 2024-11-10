@@ -73,7 +73,7 @@ const player = new Player({
   },
 })
 
-let level = 16
+let level = 17
 
 let levels = {
   1: {
@@ -2691,8 +2691,8 @@ let levels = {
       parsedCollisions = collisionsLevel17.parse2D()
       collisionBlocks = parsedCollisions.createObjectsFrom2D()
       player.collisionBlocks = collisionBlocks
-      player.position.x = 850
-      player.position.y = 530
+      player.position.x = 100
+      player.position.y = 100
       if (player.currentAnimation) player.currentAnimation.isActive = false
 
       background = new Sprite({
@@ -2707,8 +2707,8 @@ let levels = {
       doors = [
         new Sprite({
           position: {
-            x: 60,
-            y: 430,
+            x: 900,
+            y: 435,
           },
           imageSrc: 'img/doors/doorTest2.png',
           frameRate: 6,
@@ -2721,7 +2721,7 @@ let levels = {
         new Sprite({
           position: {
             x: 50,
-            y: 50,
+            y: 445,
           },
           imageSrc: './img/pagina/computer1.png',
           frameRate: 1,
@@ -2734,8 +2734,8 @@ let levels = {
       energies = [
         new Sprite({
           position: {
-            x: 800,
-            y: 220,
+            x: 900,
+            y: 50,
           },
           imageSrc: './img/pagina/fire6.png',
           frameRate: 7,
@@ -2750,8 +2750,8 @@ let levels = {
 
         new Sprite({
           position: {
-            x: 580,
-            y: 220,
+            x: 50,
+            y: 280,
           },
           imageSrc: './img/pagina/fire6.png',
           frameRate: 7,
@@ -2760,9 +2760,43 @@ let levels = {
           autoplay: true,
           move: true,
           limit_left: 50,
-          limit_right: 400,
+          limit_right: 900,
           direction: 1,
-           eixo: "y"
+           eixo: "x"
+        }),
+
+        new Sprite({
+          position: {
+            x: 0,
+            y: 280,
+          },
+          imageSrc: './img/pagina/fire6.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 50,
+          limit_right: 900,
+          direction: 1,
+           eixo: "x"
+        }),
+
+        new Sprite({
+          position: {
+            x: 80,
+            y: 280,
+          },
+          imageSrc: './img/pagina/fire6.png',
+          frameRate: 7,
+          frameBuffer: 8,
+          loop: true,
+          autoplay: true,
+          move: true,
+          limit_left: 50,
+          limit_right: 900,
+          direction: 1,
+           eixo: "x"
         }),
       ]
 
@@ -2771,7 +2805,7 @@ let levels = {
         new Sprite({
           position: {
             x: 200,
-            y: 420,
+            y: 155,
           },
           imageSrc: './img/pagina/fire3.png',
           frameRate: 8,
@@ -2784,8 +2818,8 @@ let levels = {
 
         new Sprite({
           position: {
-            x: 470,
-            y: 280,
+            x: 250,
+            y: 155,
           },
           imageSrc: './img/pagina/fire3.png',
           frameRate: 8,
@@ -2795,13 +2829,44 @@ let levels = {
           move: false,
           opacity: 1
         }),
+
+        new Sprite({
+          position: {
+            x: 300,
+            y: 155,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false,
+          opacity: 1
+        }),
+
+        new Sprite({
+          position: {
+            x: 350,
+            y: 155,
+          },
+          imageSrc: './img/pagina/fire3.png',
+          frameRate: 8,
+          frameBuffer: 9,
+          loop: true,
+          autoplay: true,
+          move: false,
+          opacity: 1
+        }),
+
+        
+        
       ]
 
       apagador = [
         new Sprite({
           position: {
-            x: 850,
-            y: 425,
+            x: 450,
+            y: 160,
           },
           imageSrc: './img/pagina/apagador.png',
           frameRate: 1,
@@ -2811,6 +2876,8 @@ let levels = {
          
         }),
       ]
+
+      lightnings = []
 
 
     },
