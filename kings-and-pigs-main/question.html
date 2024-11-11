@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Quiz Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .quiz-container {
+            width: 350px;
+            background: linear-gradient(135deg, #8e44ad, #3498db);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .logo img {
+            width: 80px;
+            height: 80px;
+        }
+        .timer {
+            background-color: #d3e4ff;
+            color: #000;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-weight: bold;
+        }
+        .question {
+            font-size: 18px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .option {
+            background-color: #f1f7ff;
+            border: 1px solid #d0e2ff;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .option:hover {
+            background-color: #d3e4ff;
+        }
+        .footer {
+            font-size: 14px;
+            color: #666;
+            margin-top: 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="header">
+            <h2>Awesome Quiz Application</h2>
+            <div class="logo">
+                <img src="/img/logo1.png" alt="Logo" width="60px" height="60px">
+            </div>
+        </div>
+        <div class="question">
+            <p>1. What does HTML stand for?</p>
+        </div>
+        <div class="options">
+            <div class="option">Hyper Text Preprocessor</div>
+            <div class="option">Hyper Text Markup Language</div>
+            <div class="option">Hyper Text Multiple Language</div>
+            <div class="option">Hyper Tool Multi Language</div>
+        </div>
+        <div class="footer">1 de 17 Questões</div>
+    </div>
+</body>
+</html>
