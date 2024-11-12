@@ -1,54 +1,118 @@
 let isNearComputer = false;
-let isNearApagador = false; // Adicione esta variável
+let isNearApagador = false;
 let ativadorFire = true;
-const MARGIN_DOOR_COLLISION = 10; // Ajuste a margem conforme necessário
+const MARGIN_DOOR_COLLISION = 10;
+let correctAnswer = false;
+let popupShown = false; // Verifica se o popup já foi exibido
 
-// Função para exibir o popup com um arquivo HTML
-// Função para exibir o popup com um arquivo HTML
 function showPopup(nome, fase) {
   const overlay = document.createElement('div');
   overlay.style.position = 'fixed';
   overlay.style.top = '0';
   overlay.style.left = '0';
-  overlay.style.width = '100%';
-  overlay.style.height = '100%';
+  overlay.style.width = '100vw';
+  overlay.style.height = '100vh';
   overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
   overlay.style.zIndex = '999';
+  overlay.style.display = 'flex';
+  overlay.style.alignItems = 'center';
+  overlay.style.justifyContent = 'center';
   document.body.appendChild(overlay);
 
-  // Centralizar o conteúdo do popup
   const popupContainer = document.createElement('div');
-  popupContainer.style.position = 'absolute';
-  popupContainer.style.top = '50%';
-  popupContainer.style.left = '60%';
-  popupContainer.style.transform = 'translate(-50%, -50%)'; // Para centralizar corretamente
-  popupContainer.style.maxWidth = '80%'; // Limita o tamanho do popup (opcional)
-  popupContainer.style.maxHeight = '80%'; // Limita o tamanho do popup (opcional)
-  popupContainer.style.overflow = 'auto'; // Permite rolagem caso o conteúdo seja muito grande
+  popupContainer.classList.add('popup-content');
   overlay.appendChild(popupContainer);
 
-  let arquivo = fase === 0 ? nome : `popups/${nome}${fase}.html`;
+  let arquivo = fase === 0 ? nome : `popups/popup${fase}.html`;
 
   fetch(arquivo)
-    .then(response => response.text())
+    .then(response => {
+      if (!response.ok) throw new Error('Arquivo não encontrado');
+      return response.text();
+    })
     .then(html => {
       popupContainer.innerHTML = html;
+
+      // Verificar se o popup possui o feedback
+      const feedbackElement = popupContainer.querySelector("#feedback");
+      if (feedbackElement) {
+        // Adiciona as opções de resposta
+        const options = popupContainer.querySelectorAll('.option');
+        options.forEach(option => {
+          option.addEventListener('click', () => {
+            console.log('Opção clicada:', option.id); // Verifica qual opção foi clicada
+            if (option.id === "correta") {
+              correctAnswer = true;
+              feedbackElement.textContent = "Correto! Parabéns!";
+              feedbackElement.style.color = "lightgreen";
+              showGameFeedback("Correto! Parabéns!", "lightgreen");
+              console.log('Resposta correta marcada.');
+            } else {
+              correctAnswer = false;
+              feedbackElement.textContent = "Incorreto! Tente novamente.";
+              feedbackElement.style.color = "red";
+              showGameFeedback("Incorreto! Tente novamente.", "red");
+              console.log('Resposta incorreta marcada.');
+            }
+
+            setTimeout(() => {
+              console.log('Fechando popup...');
+              closePopup(); // Espera o feedback ser mostrado antes de fechar
+            }, 2000);
+          });
+        });
+      } else {
+        console.log("Elemento de feedback não encontrado no popup");
+      }
     })
     .catch(error => {
       console.error('Erro ao carregar o popup:', error);
+      popupContainer.innerHTML = '<p>Erro ao carregar o conteúdo.</p>';
     });
+}
 
-  window.closePopup = function() {
-    overlay.remove();
-  };
+function closePopup() {
+  const overlay = document.querySelector('div[style*="z-index: 999"]');
+  console.log('correctAnswer ao fechar popup:', correctAnswer); // Verifique o valor de correctAnswer
+
+  if (overlay) {
+    overlay.remove(); // Fecha o popup
+  }
+
+  // Verifica se a resposta foi correta antes de abrir a porta
+  if (correctAnswer) {
+    console.log('Abrindo a porta...');
+    player.velocity.x = 0;
+    player.velocity.y = 0;
+    player.preventInput = true;  // Previne o movimento do player enquanto a porta abre
+    player.switchSprite('enterDoor');  // Troca o sprite para a animação de entrada na porta
+    doors[0].play();  // Toca som ou qualquer outra ação relacionada à porta.
+
+    // Se a resposta estiver correta, a porta se abre depois do feedback
+    setTimeout(() => {
+      player.preventInput = false; // Permite novamente o movimento do player após 2 segundos
+      console.log('Porta aberta!');
+    }, 2000);  // 2 segundos após o feedback
+  } else {
+    console.log('Resposta errada. Porta não abre.');
+  }
 }
 
 
+function showGameFeedback(message, color) {
+  const feedbackElement = document.querySelector("#feedback");  // Se o popup já tiver carregado, essa busca irá funcionar
+  if (feedbackElement) {
+    feedbackElement.textContent = message;
+    feedbackElement.style.color = color;
+  }
+}
+
+// Detecção de colisões e interação com teclas
 window.addEventListener('keydown', (event) => {
   if (player.preventInput) return;
 
   if (event.key === 'Enter' && isNearComputer) {
-    showPopup('popup', level);
+    showPopup('popup.html', level || 0);
   }
 
   if (event.key === 'Enter' && isNearApagador) {
@@ -61,15 +125,7 @@ window.addEventListener('keydown', (event) => {
     case 'w':
       for (let door of doors) {
         if (isColliding(player, door, MARGIN_DOOR_COLLISION)) {
-          player.velocity.x = 0;
-          player.velocity.y = 0;
-          player.preventInput = true;
-          player.switchSprite('enterDoor');
-          door.play();
-
-          // Abre o popup com question.html ao entrar na porta
-          showPopup('question.html', 0); // A página question.html será aberta no popup
-
+          showPopup('questions/question1.html', 0);
           return;
         }
       }
@@ -105,9 +161,8 @@ function isColliding(rect1, rect2, margin = 0) {
 }
 
 function checkPlayerFireCollision() {
-  if (ativadorFire) { // Verifique se o fogo está ativado antes de verificar colisão
+  if (ativadorFire) {
     fires.forEach((fire) => {
-      // Verifica se o fogo ainda está visível
       if (fire.opacity > 0 && isColliding(player, fire, 10)) {
         if (!popupShown) {
           popupShown = true;

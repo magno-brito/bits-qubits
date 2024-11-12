@@ -56,7 +56,6 @@ const player = new Player({
         y: 410,   // Ajuste conforme necessário
       },
       onComplete: () => {
-        console.log('completed animation');
         gsap.to(overlay, {
           opacity: 1,
           onComplete: () => {
@@ -100,7 +99,7 @@ let levels = {
         new Sprite({
           position: {
             x: 870,
-            y: 430,
+            y: 438,
           },
           imageSrc: './img/doors/doorTest1.png',
           frameRate: 6,
@@ -2901,7 +2900,7 @@ const overlay = {
 }
 
 
-let popupShown = false;
+ popupShown = false;
 
 
 function animate() {

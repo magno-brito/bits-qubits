@@ -61,11 +61,9 @@ class Player extends Sprite {
     } else {
       if (this.lastDirection === 'left'){
         this.switchSprite('idleLeft')
-        console.log('Indo para left')
       }
       else {
         this.switchSprite('idleRight')
-        console.log('Indo para direita')
       }
     }
   }
@@ -121,8 +119,7 @@ class Player extends Sprite {
 
     for (let i = 0; i < this.collisionBlocks.length; i++) {
       const collisionBlock = this.collisionBlocks[i]
-      console.log(this.collisionBlocks[i].
-        movable)
+    
       if (this.collisionBlocks[i].movable){
         this.drawRoundedRect(collisionBlock.position.x, collisionBlock.position.y, 70, 50, 10, 'rgba(255, 255, 255, 0.5)');
       }

@@ -23,10 +23,12 @@
             text-align: center;
         }
         .header {
+            color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 10px;
+            font-weight: bold;
         }
         .logo img {
             width: 80px;
@@ -43,11 +45,15 @@
             font-size: 18px;
             margin: 20px 0;
             text-align: left;
+            font-weight: bold;
+            text-align: center;
+            color: white;
         }
         .options {
             display: flex;
             flex-direction: column;
             gap: 10px;
+            font-size: 12px;
         }
         .option {
             background-color: #f1f7ff;
@@ -58,34 +64,43 @@
             transition: background-color 0.3s;
         }
         .option:hover {
-            background-color: #d3e4ff;
+            background-color: #8e44ad;
         }
         .footer {
+            color: white;
             font-size: 14px;
-            color: #666;
             margin-top: 20px;
             text-align: left;
+        }
+        #feedback {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <div class="quiz-container">
         <div class="header">
-            <h2>Awesome Quiz Application</h2>
+            <h2>Responda a pergunta para passar de nível</h2>
             <div class="logo">
                 <img src="/img/logo1.png" alt="Logo" width="60px" height="60px">
             </div>
         </div>
         <div class="question">
-            <p>1. What does HTML stand for?</p>
+            <p>Quantos valores um bit clássico pode armazenar?</p>
         </div>
         <div class="options">
-            <div class="option">Hyper Text Preprocessor</div>
-            <div class="option">Hyper Text Markup Language</div>
-            <div class="option">Hyper Text Multiple Language</div>
-            <div class="option">Hyper Tool Multi Language</div>
+            <div class="option">Apenas o valor 0</div>
+            <div class="option">Apenas o valor 1</div>
+            <div class="option" id="correta">Apenas os valores 0 ou 1</div>
+            <div class="option">Várias combinações de estados de 0 e 1</div>
         </div>
         <div class="footer">1 de 17 Questões</div>
+        <div id="feedback"></div>
+        <p id="feedback"></p> <!-- Aqui vamos adicionar o feedback -->
     </div>
+
+   
 </body>
 </html>

@@ -89,7 +89,6 @@ class Sprite {
         if (this.opacity <= 0) {
             this.opacity = 0; // Impede que a opacidade fique negativa
             this.extinguir = false; // Para a extinção se a opacidade for zero
-            console.log("Fogo completamente extinto");
         }
     }
 }
