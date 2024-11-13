@@ -14,7 +14,6 @@ let doors
 let computers
 let fires
 let fireSpeed = 2; 
-// 1 para mover para a direita, -1 para mover para a esquerda
 
 
 const player = new Player({
@@ -72,7 +71,7 @@ const player = new Player({
   },
 })
 
-let level = 1
+let level = 16
 
 let levels = {
   1: {

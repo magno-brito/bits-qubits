@@ -4,8 +4,10 @@ let ativadorFire = true;
 const MARGIN_DOOR_COLLISION = 10;
 let correctAnswer = false;
 let popupShown = false; // Verifica se o popup já foi exibido
+let fase = 1;
 
 function showPopup(nome, fase) {
+  console.log(fase)
   const overlay = document.createElement('div');
   overlay.style.position = 'fixed';
   overlay.style.top = '0';
@@ -24,6 +26,7 @@ function showPopup(nome, fase) {
   overlay.appendChild(popupContainer);
 
   let arquivo = fase === 0 ? nome : `popups/popup${fase}.html`;
+  console.log(level)
 
   fetch(arquivo)
     .then(response => {
@@ -40,23 +43,19 @@ function showPopup(nome, fase) {
         const options = popupContainer.querySelectorAll('.option');
         options.forEach(option => {
           option.addEventListener('click', () => {
-            console.log('Opção clicada:', option.id); // Verifica qual opção foi clicada
             if (option.id === "correta") {
               correctAnswer = true;
               feedbackElement.textContent = "Correto! Parabéns!";
               feedbackElement.style.color = "lightgreen";
               showGameFeedback("Correto! Parabéns!", "lightgreen");
-              console.log('Resposta correta marcada.');
             } else {
               correctAnswer = false;
               feedbackElement.textContent = "Incorreto! Tente novamente.";
               feedbackElement.style.color = "red";
               showGameFeedback("Incorreto! Tente novamente.", "red");
-              console.log('Resposta incorreta marcada.');
             }
 
             setTimeout(() => {
-              console.log('Fechando popup...');
               closePopup(); // Espera o feedback ser mostrado antes de fechar
             }, 2000);
           });
@@ -96,8 +95,10 @@ function closePopup() {
   } else {
     console.log('Resposta errada. Porta não abre.');
   }
-}
 
+  // Resetar popupShown para permitir nova exibição de popup
+  popupShown = false;
+}
 
 function showGameFeedback(message, color) {
   const feedbackElement = document.querySelector("#feedback");  // Se o popup já tiver carregado, essa busca irá funcionar
@@ -125,7 +126,10 @@ window.addEventListener('keydown', (event) => {
     case 'w':
       for (let door of doors) {
         if (isColliding(player, door, MARGIN_DOOR_COLLISION)) {
-          showPopup('questions/question1.html', 0);
+          if (!popupShown) {
+            popupShown = true;
+            showPopup(`questions/question${level}.html`, 0); // Mostrar o popup de pergunta
+          }
           return;
         }
       }

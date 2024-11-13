@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resposta Incorreta</title>
+    <title>Quiz</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -24,13 +24,16 @@
         }
         .header {
             color: white;
+            display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 10px;
-            text-align: center;
             font-weight: bold;
         }
-        
+        .logo img {
+            width: 80px;
+            height: 80px;
+        }
         .timer {
             background-color: #d3e4ff;
             color: #000;
@@ -69,17 +72,36 @@
             margin-top: 20px;
             text-align: left;
         }
+        #feedback {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="quiz-container">
         <div class="header">
-            <h2>Resposta Incorreta</h2>
+            <h2>Responda a pergunta para passar de nível</h2>
+            <div class="logo">
+                <img src="/img/logo1.png" alt="Logo" width="60px" height="60px">
+            </div>
         </div>
         <div class="question">
-            <img src="/img/pagina/wrond_answer.png" alt="">
+            <p>O que acontece quando um qubit é medido em um circuito quântico?</p>
         </div>
-        
+        <div class="options">
+            <div class="option" >O qubit assume um valor aleatório entre 0 e 1</div>
+            <div class="option"  >O qubit permanece em superposição, mas é mais difícil de manipular
+            </div>
+            <div class="option" id="correta"> O qubit colapsa para um dos estados possíveis (0 ou 1), dependendo da probabilidade</div>
+            <div class="option" > O qubit se divide em duas cópias independentes</div>
+        </div>
+        <div class="footer">17 de 17 Questões</div>
+        <div id="feedback"></div>
+        <p id="feedback"></p> 
     </div>
+
+   
 </body>
 </html>
