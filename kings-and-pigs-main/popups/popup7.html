@@ -1,109 +1,30 @@
-<style>
-  .popup-content {
-    background: #8c52ff;
-    padding: 0;
-    width: 400px;
-    height: 500px; /* Altura fixa para todas as popups */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 20px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    border: 2px solid #a2a9af;
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    flex-direction: column; /* Distribui o conteúdo verticalmente */
-    overflow: hidden; 
-  }
-
-  .popup-header {
-    background-color: #320094;
-    padding: 10px;
-    border-bottom: 2px solid #a2a9af;
-    border-top-left-radius: 20px;  /* Ajuste das bordas do cabeçalho */
-    border-top-right-radius: 20px;
-    display: flex; /* Para colocar o título e o número lado a lado */
-    justify-content: space-between; /* Espaço entre título e número */
-    align-items: center;
-  }
-
-  .popup-header h2 {
-    font-size: 20px;
-    color: white;
-    margin: 0;
-    font-weight: bold;
-  }
-
-  .popup-header .stats {
-    font-size: 16px;
-    color: white;
-    font-weight: bold;
-  }
-
-  .popup-content img {
-    display: block;
-    margin: 20px auto;
-    max-width: 250px;
-  }
-
-  .popup-body {
-    padding: 15px;
-    text-align: justify;
-    background-color: #ffffff;
-    flex: 1; /* Expande a área do corpo da popup */
-    overflow-y: auto; /* Scrollbar se necessário */
-  }
-  .popup-body p {
-    font-size: 16px;
-    color: #333;
-  }
-
-  .popup-footer {
-    padding: 10px;
-    text-align: center;
-    background-color: #320094;
-    border-top: 2px solid #a2a9af;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-  }
-
-  .popup-footer button {
-    padding: 10px 20px;
-    background-color: white;
-    color: #333;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-
-  .popup-footer button:hover {
-    background-color: #320094;
-  }
-</style>
-
-<div class="popup-content">
-    <div class="popup-header">
-        <h2>Esfera de Bloch</h2>
-        <div class="stats">N°5</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qubit</title>
+   <link rel="stylesheet" href="/popups/style.css">
+</head>
+<body>
+    <div class="card">
+        <div class="title">Superposição</div>
+        <div class="cost">7</div>
+        <div class="image">
+            <img src="/popups/img/superposition.png" >
+        </div>
+        <div class="description">
+            <p>A superposição quântica é o princípio que permite uma partícula, como um elétron ou qubit, existir em múltiplos estados ao mesmo tempo até ser medida. Por exemplo, um qubit pode estar nos estados 0 e 1 simultaneamente. Esse fenômeno é fundamental para a computação quântica e outras tecnologias emergentes. </p>
+        </div>
+        <div class="actions">
+            <button onclick="closeCard()">OK</button>
+        </div>
     </div>
-    <img src="/img/popup/esfera_bloch.png" alt="Imagem da porta lógica AND" height="200px">
-    <div class="popup-body">
-        <p>
 
-          A esfera de Bloch é uma representação gráfica para descrever o estado de um qubit, que é a unidade básica de informação quântica. Ela visualiza o estado de um qubit como um ponto em uma esfera tridimensional, onde: 
-          <br>
-          O polo norte representa o estado básico |0⟩ (zero quântico),
-           <br>
-          O polo sul representa o estado básico |1⟩ (um quântico). <br>
-
-          Estados quânticos mais complexos, que envolvem superposição (mistura de |0⟩ e |1⟩), aparecem como pontos na superfície da esfera. 
-
-        </p>
-    </div>
-    <div class="popup-footer">
-        <button onclick="closePopup()">OK</button>
-    </div>
-</div>
+    <script>
+        function closeCard() {
+            document.querySelector('.card').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
