@@ -3,11 +3,11 @@ let isNearApagador = false;
 let ativadorFire = true;
 const MARGIN_DOOR_COLLISION = 10;
 let correctAnswer = false;
-let popupShown = false; // Verifica se o popup já foi exibido
+let popupShown = { computer: false, door: false, lost: false }; // Controle separado por tipo
 let fase = 1;
 
-function showPopup(nome, fase) {
-  console.log(fase)
+function showPopup(nome, fase, type) {
+  console.log(fase);
   const overlay = document.createElement('div');
   overlay.style.position = 'fixed';
   overlay.style.top = '0';
@@ -26,7 +26,6 @@ function showPopup(nome, fase) {
   overlay.appendChild(popupContainer);
 
   let arquivo = fase === 0 ? nome : `popups/popup${fase}.html`;
-  console.log(level)
 
   fetch(arquivo)
     .then(response => {
@@ -36,10 +35,8 @@ function showPopup(nome, fase) {
     .then(html => {
       popupContainer.innerHTML = html;
 
-      // Verificar se o popup possui o feedback
       const feedbackElement = popupContainer.querySelector("#feedback");
       if (feedbackElement) {
-        // Adiciona as opções de resposta
         const options = popupContainer.querySelectorAll('.option');
         options.forEach(option => {
           option.addEventListener('click', () => {
@@ -56,12 +53,10 @@ function showPopup(nome, fase) {
             }
 
             setTimeout(() => {
-              closePopup(); // Espera o feedback ser mostrado antes de fechar
+              closePopup(type); // Fecha o popup com base no tipo
             }, 2000);
           });
         });
-      } else {
-        console.log("Elemento de feedback não encontrado no popup");
       }
     })
     .catch(error => {
@@ -70,38 +65,31 @@ function showPopup(nome, fase) {
     });
 }
 
-function closePopup() {
+function closePopup(type) {
   const overlay = document.querySelector('div[style*="z-index: 999"]');
-  console.log('correctAnswer ao fechar popup:', correctAnswer); // Verifique o valor de correctAnswer
+  if (overlay) overlay.remove();
 
-  if (overlay) {
-    overlay.remove(); // Fecha o popup
-  }
-
-  // Verifica se a resposta foi correta antes de abrir a porta
-  if (correctAnswer) {
+  if (type === 'door' && correctAnswer) {
     console.log('Abrindo a porta...');
     player.velocity.x = 0;
     player.velocity.y = 0;
-    player.preventInput = true;  // Previne o movimento do player enquanto a porta abre
-    player.switchSprite('enterDoor');  // Troca o sprite para a animação de entrada na porta
-    doors[0].play();  // Toca som ou qualquer outra ação relacionada à porta.
+    player.preventInput = true;
+    player.switchSprite('enterDoor');
+    doors[0].play();
 
-    // Se a resposta estiver correta, a porta se abre depois do feedback
     setTimeout(() => {
-      player.preventInput = false; // Permite novamente o movimento do player após 2 segundos
+      player.preventInput = false;
       console.log('Porta aberta!');
-    }, 2000);  // 2 segundos após o feedback
-  } else {
-    console.log('Resposta errada. Porta não abre.');
+    }, 2000);
+  } else if (type === 'lost') {
+    setTimeout(() => location.reload(), 5000); // Reinicia após perder
   }
 
-  // Resetar popupShown para permitir nova exibição de popup
-  popupShown = false;
+  popupShown[type] = false; // Permite reabrir o popup desse tipo
 }
 
 function showGameFeedback(message, color) {
-  const feedbackElement = document.querySelector("#feedback");  // Se o popup já tiver carregado, essa busca irá funcionar
+  const feedbackElement = document.querySelector("#feedback");
   if (feedbackElement) {
     feedbackElement.textContent = message;
     feedbackElement.style.color = color;
@@ -112,24 +100,21 @@ function showGameFeedback(message, color) {
 window.addEventListener('keydown', (event) => {
   if (player.preventInput) return;
 
-  if (event.key === 'Enter' && isNearComputer) {
-    showPopup('popup.html', level || 0);
+  if (event.key === 'Enter' && isNearComputer && !popupShown.computer) {
+    popupShown.computer = true;
+    showPopup('popup.html', level || 0, 'computer');
   }
 
   if (event.key === 'Enter' && isNearApagador) {
-    fires.forEach(fire => {
-      fire.startExtinguishing();
-    });
+    fires.forEach(fire => fire.startExtinguishing());
   }
 
   switch (event.key) {
     case 'w':
       for (let door of doors) {
-        if (isColliding(player, door, MARGIN_DOOR_COLLISION)) {
-          if (!popupShown) {
-            popupShown = true;
-            showPopup(`questions/question${level}.html`, 0); // Mostrar o popup de pergunta
-          }
+        if (isColliding(player, door, MARGIN_DOOR_COLLISION) && !popupShown.door) {
+          popupShown.door = true;
+          showPopup(`questions/question${level}.html`, 0, 'door');
           return;
         }
       }
@@ -167,14 +152,9 @@ function isColliding(rect1, rect2, margin = 0) {
 function checkPlayerFireCollision() {
   if (ativadorFire) {
     fires.forEach((fire) => {
-      if (fire.opacity > 0 && isColliding(player, fire, 10)) {
-        if (!popupShown) {
-          popupShown = true;
-          showPopup('lost.html', 0);
-          setTimeout(() => {
-            location.reload();
-          }, 5000);
-        }
+      if (fire.opacity > 0 && isColliding(player, fire, 10) && !popupShown.lost) {
+        popupShown.lost = true;
+        showPopup('lost.html', 0, 'lost');
       }
     });
   }
@@ -182,14 +162,16 @@ function checkPlayerFireCollision() {
 
 function checkPlayerEnergyCollision() {
   energies.forEach((energy) => {
-    if (isColliding(player, energy, 10)) {
-      if (!popupShown) {
-        popupShown = true;
-        showPopup('lost.html', 0);
-        setTimeout(() => {
-          location.reload();
-        }, 5000);
-      }
+    if (isColliding(player, energy, 10) && !popupShown.lost) {
+      popupShown.lost = true;
+      showPopup('lost.html', 0, 'lost');
     }
   });
 }
+
+function closeCard() {
+  // Envia um evento para informar ao jogo que o popup deve ser fechado
+  if (window.parent && window.parent.closePopup) {
+      window.parent.closePopup();
+  }
+} 
