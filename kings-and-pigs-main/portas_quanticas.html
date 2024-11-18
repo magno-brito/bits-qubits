@@ -73,11 +73,11 @@
     }
     
     .card img {
-        width: 60%; /* Mantém o tamanho original da imagem */
-        height: 60%; /* Mantém o tamanho original da imagem */
-        max-width: 100%; /* Garante que a imagem não ultrapasse a largura do card */
-        margin: 0 auto; /* Centraliza a imagem horizontalmente */
-        display: block; /* Garante que a imagem se comporte como um bloco para centralização */
+        width: 60%; 
+        height: 60%; 
+        max-width: 100%; 
+        margin: 0 auto; 
+        display: block; 
     }
     
     .card:hover {
@@ -138,7 +138,13 @@
     .hadamard-gif {
         animation-iteration-count: infinite;
     }
-    
+
+    #gif {
+        width: 400px !important;
+        height: 200%;
+        object-fit: contain; 
+    }
+   
   </style>
 
 </head>
@@ -152,7 +158,9 @@
     <li class="nav-item"><a class="nav-link" href="/inicial.html">Início</a></li>
     <li class="nav-item"><a class="nav-link" href="#">Sobre o Jogo</a></li>
     <li class="nav-item"><a class="nav-link" href="#">Bits</a></li>
+    <li class="nav-item"><a class="nav-link" href="portas_classicas.html">Portas Clássicas</a></li>
     <li class="nav-item"><a class="nav-link" href="esfera_bloch.html">Qubits</a></li>
+    <li class="nav-item"><a class="nav-link" href="portas_quanticas.html">Portas Quânticas</a></li>
     <li class="nav-item"><a class="nav-link" href="#">Computadores Quânticos</a></li>
   </ul>
 </nav>
@@ -165,9 +173,11 @@
             <img src="/esfera/hadamard_logo.png" alt="Hadamard" class="hadamard-gif">
             <p>Hadamard</p>
             <div class="card-content" style="display: none;">
+                <img id="gif" src="/esfera/hadamard.gif" alt="Hadamard" class="hadamard-gif" height="400px">
+
                 <h2>Hadamard</h2>
                 <p >A porta lógica de Hadamard é uma porta quântica que transforma um qubit de estado base (0 ou 1) em uma superposição dos dois estados. Quando aplicada, ela cria um estado quântico igualitário, com amplitudes iguais para 0 e 1, gerando uma interferência. A porta é crucial em algoritmos quânticos, como o algoritmo de Grover, pois permite a exploração simultânea de múltiplos estados. Na imagem acima é possível ver que ao aplicar a porta H, o vetor do qubit vai para o estado intermediário de 0 e 1, gerando assim uma superposição desses estados.</p>
-                <img src="" alt="">
+
             </div>
 
         </div>
@@ -268,10 +278,11 @@
                 <p>RY</p>
             </div>
         </div>
+
+        
     </div>
 </div>
 
-<!-- Estrutura do popup -->
 <div class="popup" id="popup">
     <div class="popup-content">
         <span class="close-btn" onclick="closePopup()">&times;</span>
@@ -282,30 +293,29 @@
 </div>
 
 <script>
-    // Função para abrir o popup
     function openPopup(card) {
+       
         const cardContent = card.querySelector('.card-content');
         const title = cardContent.querySelector('h2').innerText;
         const description = cardContent.querySelector('p').innerText;
-        const image = card.querySelector('img').src;
-        const image_Matrix = card.querySelector('#matrix');
+        const imgSrc = card.querySelector('#gif').src; 
 
-        // Preenche o popup com o conteúdo do card
-        document.getElementById('popup-img').src = image; // Imagem principal do card
         document.getElementById('popup-title').innerText = title;
         document.getElementById('popup-description').innerText = description;
+        document.getElementById('popup-img').src = imgSrc;
 
-        // Verifica se existe a imagem matrix e a coloca no popup
-       
-        // Exibe o popup
         document.getElementById('popup').style.display = 'flex';
+        document.getElementById('popup-img').style.height = '200px';
+        document.getElementById('popup-img').style.width = '200px';
+
+
     }
 
-    // Função para fechar o popup
     function closePopup() {
         document.getElementById('popup').style.display = 'none';
     }
 </script>
+
 
 
 </body>
