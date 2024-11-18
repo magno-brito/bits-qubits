@@ -52,6 +52,7 @@
         width: calc(100% - 220px);
         display: block;
         margin-top: 20px;
+        font-weight: bold;
     }
     
     .card-grid {
@@ -62,7 +63,7 @@
     }
     
     .card {
-        background-color: #a2dc84;
+        background-color: #ae67bd;
         border-radius: 10px;
         padding: 10px;
         text-align: center;
@@ -72,9 +73,11 @@
     }
     
     .card img {
-        width: 50px;
-        height: 50px;
-        margin-bottom: 10px;
+        width: 60%; /* Mantém o tamanho original da imagem */
+        height: 60%; /* Mantém o tamanho original da imagem */
+        max-width: 100%; /* Garante que a imagem não ultrapasse a largura do card */
+        margin: 0 auto; /* Centraliza a imagem horizontalmente */
+        display: block; /* Garante que a imagem se comporte como um bloco para centralização */
     }
     
     .card:hover {
@@ -104,20 +107,23 @@
     }
     
     .popup-content img {
-        width: 70px;
-        height: 70px;
+        width: 250px;
+        height: 250px;
         margin-bottom: 15px;
     }
     
     .popup-content h2 {
         font-size: 1.2em;
-        color: #333;
+        color: rgb(46, 6, 46);
         margin: 10px 0;
+        font-weight: bold;
     }
     
     .popup-content p {
         font-size: 0.9em;
-        color: #555;
+        color: purple;
+        text-align: justify;
+
     }
     
     .close-btn {
@@ -128,6 +134,11 @@
         color: #333;
         cursor: pointer;
     }
+  
+    .hadamard-gif {
+        animation-iteration-count: infinite;
+    }
+    
   </style>
 
 </head>
@@ -147,19 +158,21 @@
 </nav>
 
 <div class="content">
-    <h1 style="text-align: center; margin-bottom: 20px">Portas Lógicas Quânticas</h1>
+    <h1 style="font-weight: bold; text-align: center; margin-bottom: 50px; margin-top: 10px;color:rgb(73, 1, 73)">Portas Lógicas Quânticas</h1>
     <div class="card-grid" id="cardGrid">
         
         <div class="card" onclick="openPopup(this)">
-            <img src="https://via.placeholder.com/70" alt="Hadamard">
+            <img src="/esfera/hadamard_logo.png" alt="Hadamard" class="hadamard-gif">
             <p>Hadamard</p>
             <div class="card-content" style="display: none;">
                 <h2>Hadamard</h2>
-                <p>Texto sobre Hadamard expandidos</p>
+                <p >A porta lógica de Hadamard é uma porta quântica que transforma um qubit de estado base (0 ou 1) em uma superposição dos dois estados. Quando aplicada, ela cria um estado quântico igualitário, com amplitudes iguais para 0 e 1, gerando uma interferência. A porta é crucial em algoritmos quânticos, como o algoritmo de Grover, pois permite a exploração simultânea de múltiplos estados. Na imagem acima é possível ver que ao aplicar a porta H, o vetor do qubit vai para o estado intermediário de 0 e 1, gerando assim uma superposição desses estados.</p>
+                <img src="" alt="">
             </div>
+
         </div>
         <div class="card" onclick="openPopup(this)">
-            <img src="https://via.placeholder.com/70" alt="Juegos de Lengua">
+            <img src="esfera/swap_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
             <p>Swap</p>
             <div class="card-content" style="display: none;">
                 <h2>Swap</h2>
@@ -167,7 +180,7 @@
             </div>
         </div>
         <div class="card" onclick="openPopup(this)">
-            <img src="https://via.placeholder.com/70" alt="Juegos de Inglés">
+            <img src="esfera/controlled_not_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
             <p>Controlled-NOT</p>
             <div class="card-content" style="display: none;">
                 <h2>Juegos de Inglés</h2>
@@ -175,7 +188,7 @@
             </div>
         </div>
         <div class="card" onclick="openPopup(this)">
-            <img src="https://via.placeholder.com/70" alt="Juegos de Inglés">
+            <img src="esfera/pauli_x_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
             <p>Pauli-X</p>
             <div class="card-content" style="display: none;">
                 <h2>Pauli-X</h2>
@@ -183,7 +196,7 @@
             </div>
         </div>
         <div class="card" onclick="openPopup(this)">
-            <img src="https://via.placeholder.com/70" alt="Juegos de Inglés">
+            <img src="esfera/pauli_y_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
             <p>Pauli-Y</p>
             <div class="card-content" style="display: none;">
                 <h2>Pauli-Y</h2>
@@ -192,7 +205,7 @@
         </div>
         <!-- Segundo bloco de cards -->
         <div class="card" onclick="openPopup(this)">
-            <img src="https://via.placeholder.com/70" alt="Juegos de Inglés">
+            <img src="esfera/pauli_z_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
             <p>Pauli-Z</p>
             <div class="card-content" style="display: none;">
                 <h2>Pauli-Z</h2>
@@ -200,7 +213,7 @@
             </div>
         </div>
         <div class="card" onclick="openPopup(this)">
-            <img src="https://via.placeholder.com/70" alt="Juegos de Inglés">
+            <img src="esfera/toffoli_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
             <p>Toffoli</p>
             <div class="card-content" style="display: none;">
                 <h2>Toffoli</h2>
@@ -208,7 +221,7 @@
             </div>
         </div>
         <div class="card" onclick="openPopup(this)">
-            <img src="https://via.placeholder.com/70" alt="Juegos de Inglés">
+            <img src="esfera/t_gate_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
             <p>T</p>
             <div class="card-content" style="display: none;">
                 <h2>T</h2>
@@ -216,7 +229,7 @@
             </div>
         </div>
         <div class="card" onclick="openPopup(this)">
-            <img src="https://via.placeholder.com/70" alt="Juegos de Inglés">
+            <img src="esfera/s_gate_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
             <p>S</p>
             <div class="card-content" style="display: none;">
                 <h2>S</h2>
@@ -224,15 +237,15 @@
             </div>
         </div>
         <div class="card" onclick="openPopup(this)">
-            <img src="https://via.placeholder.com/70" alt="Juegos de Inglés">
-            <p>Z</p>
+            <img src="esfera/i_gate_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
+            <p>I</p>
             <div class="card-content" style="display: none;">
-                <h2>Z</h2>
-                <p>Z</p>
+                <h2>I</h2>
+                <p>I</p>
             </div>
         </div>
         <div class="card" onclick="openPopup(this)">
-            <img src="https://via.placeholder.com/70" alt="Juegos de Inglés">
+            <img src="esfera/rz_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
             <p>RZ</p>
             <div class="card-content" style="display: none;">
                 <h2>RZ</h2>
@@ -240,7 +253,7 @@
             </div>
         </div>
         <div class="card" onclick="openPopup(this)">
-            <img src="https://via.placeholder.com/70" alt="Juegos de Inglés">
+            <img src="esfera/rx_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
             <p>RX</p>
             <div class="card-content" style="display: none;">
                 <h2>RX</h2>
@@ -248,7 +261,7 @@
             </div>
         </div>
         <div class="card" onclick="openPopup(this)">
-            <img src="https://via.placeholder.com/70" alt="Juegos de Inglés">
+            <img src="esfera/ry_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
             <p>RY</p>
             <div class="card-content" style="display: none;">
                 <h2>RY</h2>
@@ -275,12 +288,15 @@
         const title = cardContent.querySelector('h2').innerText;
         const description = cardContent.querySelector('p').innerText;
         const image = card.querySelector('img').src;
-        
+        const image_Matrix = card.querySelector('#matrix');
+
         // Preenche o popup com o conteúdo do card
-        document.getElementById('popup-img').src = image;
+        document.getElementById('popup-img').src = image; // Imagem principal do card
         document.getElementById('popup-title').innerText = title;
         document.getElementById('popup-description').innerText = description;
-        
+
+        // Verifica se existe a imagem matrix e a coloca no popup
+       
         // Exibe o popup
         document.getElementById('popup').style.display = 'flex';
     }
@@ -290,6 +306,7 @@
         document.getElementById('popup').style.display = 'none';
     }
 </script>
+
 
 </body>
 </html>
