@@ -6,151 +6,6 @@
   <title>Bits & Qubits</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
-  
-  <style>
-    body, html {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        background-color: #f0f9e4;
-        min-height: 100vh;
-    }
-    
-    .navbar-vertical {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 200px;
-        background-color: #2C0A4D;
-        padding-top: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .navbar-vertical .navbar-brand img {
-        height: 100px;
-        margin-bottom: 20px;
-    }
-    
-    .navbar-vertical .nav-link {
-        color: #FFFFFF;
-        font-size: 18px;
-        padding: 10px;
-        width: 100%;
-        text-align: center;
-        transition: background-color 0.3s;
-    }
-    
-    .navbar-vertical .nav-link:hover {
-        background-color: #4A2A73;
-    }
-    
-    .content {
-        margin-left: 220px;
-        width: calc(100% - 220px);
-        display: block;
-        margin-top: 20px;
-        font-weight: bold;
-    }
-    
-    .card-grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-    
-    .card {
-        background-color: #ae67bd;
-        border-radius: 10px;
-        padding: 10px;
-        text-align: center;
-        cursor: pointer;
-        transition: transform 0.3s ease;
-        width: 180px;
-    }
-    
-    .card img {
-        width: 60%; 
-        height: 60%; 
-        max-width: 100%; 
-        margin: 0 auto; 
-        display: block; 
-    }
-    
-    .card:hover {
-        transform: scale(1.05);
-    }
-    
-    .popup {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .popup-content {
-        background-color: #fff;
-        border-radius: 10px;
-        width: 80%;
-        max-width: 400px;
-        padding: 20px;
-        text-align: center;
-        position: relative;
-    }
-    
-    .popup-content img {
-        width: 250px;
-        height: 250px;
-        margin-bottom: 15px;
-    }
-    
-    .popup-content h2 {
-        font-size: 1.2em;
-        color: rgb(46, 6, 46);
-        margin: 10px 0;
-        font-weight: bold;
-    }
-    
-    .popup-content p {
-        font-size: 0.9em;
-        color: purple;
-        text-align: justify;
-
-    }
-    
-    .close-btn {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 1.2em;
-        color: #333;
-        cursor: pointer;
-    }
-  
-    .hadamard-gif {
-        animation-iteration-count: infinite;
-    }
-
-    .img-portas {
-        height: 400px;
-        width: 400px;
-    }
-
-    #gif {
-        width: 400px !important;
-        height: 200%;
-        object-fit: contain; 
-    }
-   
-  </style>
 
 </head>
 <body>
@@ -171,7 +26,7 @@
 </nav>
 
 <div class="content">
-    <h1 style="font-weight: bold; text-align: center; margin-bottom: 50px; margin-top: 10px;color:rgb(73, 1, 73)">Portas Lógicas Quânticas</h1>
+    <h2 style="font-weight: bold; text-align: center; margin-bottom: 50px; margin-top: 10px;color:rgb(73, 1, 73)">Principais Portas Lógicas Quânticas</h2>
     <div class="card-grid" id="cardGrid">
         
         <div class="card" onclick="openPopup(this)">
@@ -273,7 +128,7 @@
             <img src="esfera/swap_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
             <p>Swap</p>
             <div class="card-content" style="display: none;">
-                <img id="gif" src="/esfera/swap.png" alt="Hadamard" class="hadamard-gif" height="400px">
+                <img id="gif" src="/esfera/swap.gif" alt="Hadamard" class="hadamard-gif" height="400px">
                 <h2>Swap</h2>
                 <p>A porta quântica Swap troca os estados de dois qubits. Se o primeiro qubit está no estado A e o segundo no estado B, após a operação, o primeiro estará em B e o segundo em A. Ela é essencial em circuitos quânticos para reorganizar qubits, facilitando interações entre eles. Sua aplicação é fundamental em algoritmos que requerem ajustes na posição dos estados quânticos.</p>
             </div>
@@ -282,7 +137,7 @@
             <img src="esfera/controlled_not_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
             <p>Controlled-NOT</p>
             <div class="card-content" style="display: none;">
-                <img id="gif" src="/esfera/controlled_not.png" alt="Hadamard" class="hadamard-gif" height="400px">
+                <img id="gif" src="/esfera/controlled_not.gif" alt="Hadamard" class="hadamard-gif" height="400px">
                 <h2>Controlled-NOT</h2>
                 <p>A porta quântica Controlled-NOT (CNOT) atua em dois qubits, um de controle e outro alvo. Se o qubit de controle está no estado 1, ela inverte o estado do qubit alvo (0 para 1 e 1 para 0). Se o qubit de controle está no estado 0, o alvo permanece inalterado. É essencial para criar emaranhamento e realizar operações condicionais em algoritmos quânticos.</p>
             </div>
@@ -292,7 +147,7 @@
             <img src="esfera/toffoli_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
             <p>Toffoli</p>
             <div class="card-content" style="display: none;">
-                <img id="gif" src="/esfera/toffoli.png" alt="Hadamard" class="img-portas" height="400px">
+                <img id="gif" src="/esfera/toffoli.gif" alt="Hadamard" class="img-portas" height="400px">
                 <h2>Toffoli</h2>
                 <p>A porta quântica Toffoli, ou porta CCNOT, atua em três qubits: dois de controle e um alvo. Ela inverte o estado do qubit alvo apenas quando ambos os qubits de controle estão no estado 1. Caso contrário, o alvo permanece inalterado. Essencial para computação reversível e simulação de circuitos lógicos clássicos em sistemas quânticos.</p>
             </div>

@@ -6,146 +6,6 @@
   <title>Bits & Qubits</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
-  
-  <style>
-    body, html {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        background-color: #f0f9e4;
-        min-height: 100vh;
-    }
-    
-    .navbar-vertical {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 200px;
-        background-color: #2C0A4D;
-        padding-top: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .navbar-vertical .navbar-brand img {
-        height: 100px;
-        margin-bottom: 20px;
-    }
-    
-    .navbar-vertical .nav-link {
-        color: #FFFFFF;
-        font-size: 18px;
-        padding: 10px;
-        width: 100%;
-        text-align: center;
-        transition: background-color 0.3s;
-    }
-    
-    .navbar-vertical .nav-link:hover {
-        background-color: #4A2A73;
-    }
-    
-    .content {
-        margin-left: 220px;
-        width: calc(100% - 220px);
-        display: block;
-        margin-top: 20px;
-        font-weight: bold;
-    }
-    
-    .card-grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-    
-    .card {
-        background-color: #ae67bd;
-        border-radius: 10px;
-        padding: 10px;
-        text-align: center;
-        cursor: pointer;
-        transition: transform 0.3s ease;
-        width: 180px;
-    }
-    
-    .card img {
-        width: 60%; 
-        height: 60%; 
-        max-width: 100%; 
-        margin: 0 auto; 
-        display: block; 
-    }
-    
-    .card:hover {
-        transform: scale(1.05);
-    }
-    
-    .popup {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .popup-content {
-        background-color: #fff;
-        border-radius: 10px;
-        width: 80%;
-        max-width: 400px;
-        padding: 20px;
-        text-align: center;
-        position: relative;
-    }
-    
-    .popup-content img {
-        width: 250px;
-        height: 250px;
-        margin-bottom: 15px;
-    }
-    
-    .popup-content h2 {
-        font-size: 1.2em;
-        color: rgb(46, 6, 46);
-        margin: 10px 0;
-        font-weight: bold;
-    }
-    
-    .popup-content p {
-        font-size: 0.9em;
-        color: purple;
-        text-align: justify;
-
-    }
-    
-    .close-btn {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 1.2em;
-        color: #333;
-        cursor: pointer;
-    }
-  
-    .hadamard-gif {
-        animation-iteration-count: infinite;
-    }
-
-    #gif {
-        width: 400px !important;
-        height: 200%;
-        object-fit: contain; 
-    }
-   
-  </style>
 
 </head>
 <body>
@@ -158,7 +18,7 @@
     <li class="nav-item"><a class="nav-link" href="/inicial.html">Início</a></li>
     <li class="nav-item"><a class="nav-link" href="#">Sobre o Jogo</a></li>
     <li class="nav-item"><a class="nav-link" href="#">Bits</a></li>
-    <li class="nav-item"><a class="nav-link" href="portas_quanticas.html">Portas Clássicas</a></li>
+    <li class="nav-item"><a class="nav-link" href="portas_classicas.html">Portas Clássicas</a></li>
     <li class="nav-item"><a class="nav-link" href="esfera_bloch.html">Qubits</a></li>
     <li class="nav-item"><a class="nav-link" href="portas_quanticas.html">Portas Quânticas</a></li>
     <li class="nav-item"><a class="nav-link" href="#">Computadores Quânticos</a></li>
@@ -166,118 +26,77 @@
 </nav>
 
 <div class="content">
-    <h1 style="font-weight: bold; text-align: center; margin-bottom: 50px; margin-top: 10px;color:rgb(73, 1, 73)">Portas Lógicas Quânticas</h1>
+    <h2 style="font-weight: bold; text-align: center; margin-bottom: 50px; margin-top: 10px;color:rgb(1, 56, 5)">Principais Portas Lógicas Clássicas</h2>
     <div class="card-grid" id="cardGrid">
         
-        <div class="card" onclick="openPopup(this)">
+        <div class="card-classico" onclick="openPopup(this)">
             <img src="/esfera/hadamard_logo.png" alt="Hadamard" class="hadamard-gif">
-            <p>Hadamard</p>
+            <p>AND</p>
             <div class="card-content" style="display: none;">
                 <img id="gif" src="/esfera/hadamard.gif" alt="Hadamard" class="hadamard-gif" height="400px">
 
-                <h2>Hadamard</h2>
+                <h2>AND</h2>
                 <p >A porta lógica de Hadamard é uma porta quântica que transforma um qubit de estado base (0 ou 1) em uma superposição dos dois estados. Quando aplicada, ela cria um estado quântico igualitário, com amplitudes iguais para 0 e 1, gerando uma interferência. A porta é crucial em algoritmos quânticos, como o algoritmo de Grover, pois permite a exploração simultânea de múltiplos estados. Na imagem acima é possível ver que ao aplicar a porta H, o vetor do qubit vai para o estado intermediário de 0 e 1, gerando assim uma superposição desses estados.</p>
 
             </div>
 
         </div>
-        <div class="card" onclick="openPopup(this)">
-            <img src="esfera/swap_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
-            <p>Swap</p>
-            <div class="card-content" style="display: none;">
-                <h2>Swap</h2>
-                <p>Swap</p>
-            </div>
-        </div>
-        <div class="card" onclick="openPopup(this)">
-            <img src="esfera/controlled_not_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
-            <p>Controlled-NOT</p>
-            <div class="card-content" style="display: none;">
-                <h2>Juegos de Inglés</h2>
-                <p>Descrição detalhada sobre Juegos de Inglés</p>
-            </div>
-        </div>
-        <div class="card" onclick="openPopup(this)">
+        <div class="card-classico" onclick="openPopup(this)">
             <img src="esfera/pauli_x_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
-            <p>Pauli-X</p>
+            <p>OR</p>
             <div class="card-content" style="display: none;">
-                <h2>Pauli-X</h2>
-                <p>Descrição detalhada sobre Juegos de Inglés</p>
+                <img id="gif" src="/esfera/pauli_x.gif" alt="Hadamard" class="hadamard-gif" height="400px">
+                <h2>OR</h2>
+                <p>A porta quântica Pauli-X, também conhecida como porta X ou operador NOT quântico, é uma das operações fundamentais em computação quântica. Sua principal função é inverter o estado de um qubit, funcionando de maneira análoga ao operador NOT da computação clássica. Enquanto um operador NOT clássico inverte um bit (transformando 0 em 1 e 1 em 0), a porta Pauli-X atua nos estados quânticos ∣0⟩ e ∣1⟩, trocando-os de forma equivalente: ∣0⟩ torna-se ∣1⟩ e vice-versa.</p>
             </div>
         </div>
-        <div class="card" onclick="openPopup(this)">
+        <div class="card-classico" onclick="openPopup(this)">
             <img src="esfera/pauli_y_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
-            <p>Pauli-Y</p>
+            <p>NOT</p>
             <div class="card-content" style="display: none;">
-                <h2>Pauli-Y</h2>
-                <p>Descrição detalhada sobre Juegos de Inglés</p>
+                <img id="gif" src="/esfera/pauli_y.gif" alt="Hadamard" class="hadamard-gif" height="400px">
+                <h2>NOT</h2>
+                <p>A porta quântica Pauli-Y é uma operação fundamental que combina inversão e rotação no estado de um qubit. Ela transforma o estado 0 em i vezes o estado 1 e o estado 1 em -i vezes o estado 0, onde i representa a unidade imaginária. Isso significa que, além de trocar os estados, também altera suas fases. Essencial em rotações no eixo Y da esfera de Bloch, é usada em algoritmos quânticos para manipulação precisa.</p>
             </div>
         </div>
-        <!-- Segundo bloco de cards -->
-        <div class="card" onclick="openPopup(this)">
+        <div class="card-classico" onclick="openPopup(this)">
             <img src="esfera/pauli_z_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
-            <p>Pauli-Z</p>
+            <p>NAND</p>
             <div class="card-content" style="display: none;">
-                <h2>Pauli-Z</h2>
-                <p>Descrição detalhada sobre Juegos de Inglés</p>
+                <img id="gif" src="/esfera/pauli_z.gif" alt="Hadamard" class="hadamard-gif" height="400px">
+                <h2>NAND</h2>
+                <p>A porta quântica Pauli-Z é uma operação que altera a fase de um qubit sem modificar sua probabilidade. Ela mantém o estado 0 inalterado, mas transforma o estado 1 no seu oposto, ou seja, -1 vezes o estado 1. Essa mudança de fase é crucial para rotações no eixo Z da esfera de Bloch e para o controle preciso de estados em algoritmos quânticos.</p>
             </div>
         </div>
-        <div class="card" onclick="openPopup(this)">
-            <img src="esfera/toffoli_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
-            <p>Toffoli</p>
-            <div class="card-content" style="display: none;">
-                <h2>Toffoli</h2>
-                <p>Toffoli</p>
-            </div>
-        </div>
-        <div class="card" onclick="openPopup(this)">
+ 
+        <div class="card-classico" onclick="openPopup(this)">
             <img src="esfera/t_gate_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
-            <p>T</p>
+            <p>NOR</p>
             <div class="card-content" style="display: none;">
-                <h2>T</h2>
-                <p>T</p>
+                <img id="gif" src="/esfera/t.gif" alt="Hadamard" class="hadamard-gif" height="400px">
+                <h2>NOR</h2>
+                <p>A porta quântica T realiza uma rotação de fase no qubit alvo. Ela é equivalente à porta RZ com um ângulo de rotação de 45 graus (pi/4). Essencial em computação quântica, é usada para criar operações mais complexas e, combinada com outras portas, permite implementar circuitos universais quânticos.</p>
             </div>
         </div>
-        <div class="card" onclick="openPopup(this)">
+        <div class="card-classico" onclick="openPopup(this)">
             <img src="esfera/s_gate_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
-            <p>S</p>
+            <p>XOR</p>
             <div class="card-content" style="display: none;">
-                <h2>S</h2>
-                <p>S</p>
+                <img id="gif" src="/esfera/s.gif" alt="Hadamard" class="hadamard-gif" height="400px">
+                <h2>XOR</h2>
+                <p>A porta quântica S aplica uma rotação de fase ao qubit. Ela deixa o estado 0 inalterado e adiciona uma fase de i (unidade imaginária) ao estado 1. É amplamente usada em algoritmos quânticos para manipular fases, sendo fundamental em operações que envolvem controle de interferência quântica.</p>
             </div>
         </div>
-        <div class="card" onclick="openPopup(this)">
+        <div class="card-classico" onclick="openPopup(this)">
             <img src="esfera/i_gate_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
-            <p>I</p>
+            <p>XNOR</p>
             <div class="card-content" style="display: none;">
-                <h2>I</h2>
-                <p>I</p>
+                <img id="gif" src="/esfera/i.gif" alt="Hadamard" class="hadamard-gif" height="400px">
+                <h2>XNOR</h2>
+                <p>A porta quântica I, também conhecida como porta identidade, deixa o estado de um qubit inalterado. Ela atua como uma operação neutra, mantendo o estado do qubit exatamente igual, seja ele 0 ou 1. Embora não cause mudanças nos estados, a porta I é essencial em circuitos quânticos, garantindo a continuidade das operações sem modificações.</p>
             </div>
         </div>
-        <div class="card" onclick="openPopup(this)">
-            <img src="esfera/rz_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
-            <p>RZ</p>
-            <div class="card-content" style="display: none;">
-                <h2>RZ</h2>
-                <p>RZ</p>
-            </div>
-        </div>
-        <div class="card" onclick="openPopup(this)">
-            <img src="esfera/rx_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
-            <p>RX</p>
-            <div class="card-content" style="display: none;">
-                <h2>RX</h2>
-                <p>RX</p>
-            </div>
-        </div>
-        <div class="card" onclick="openPopup(this)">
-            <img src="esfera/ry_logo.png" alt="Juegos de Lengua" class="hadamard-gif">
-            <p>RY</p>
-            <div class="card-content" style="display: none;">
-                <h2>RY</h2>
-                <p>RY</p>
-            </div>
-        </div>
+       
 
         
     </div>
